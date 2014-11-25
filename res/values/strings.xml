@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">PROJ_Master</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">主站</string>
     <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="please_wait_str">请稍后...</string>
+    <string name="xunfei_speech_app_id">54632333</string>
 
+    <!-- 模块首页文章 -->
+    <string name="index_qa_str">问答</string>
+    <string name="index_tag_str">标签</string>
+    <string name="index_ask_str">提问</string>
+    <string name="index_message_str">信息</string>
+    <string name="index_center_str">个人</string>
+    
+    <!-- 下拉刷新 -->
+    <string name="get_more">正在帮您加载数据...</string>
+    <string name="release_to_refresh">松开立即刷新</string>
+    <string name="pull_to_refresh">下拉可以刷新</string>
+    <string name="refreshing">正在帮您刷新...</string>
+    <string name="updating">最近更新: 今天 </string>
 </resources>

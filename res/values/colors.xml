@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!-- 常用的颜色 -->
+	<color name="red">#FF0000 </color>
+	<color name="white">#FFFFFF</color>
+	<color name="black">#000000</color>
+	<color name="blue">#073888</color>
+	<color name="yellow">#FFFF00</color>
+	<color name="gray">#808080</color>
+	<color name="transparent">#00000000</color>
+    <color name="backgroud">#5567a6</color>
+	
+	<color name="blue_btn">#fffff0</color>
+	<color name="blue_bg">#2a59a3</color>
+	<color name="blue_line">#678ac0</color>
+	<color name="blue_pro_txt">#2c75e4</color>
+	
+	<color name="gray_pro_bg_title">#f7f7f8</color>
+	<color name="gray_pro_txt">#8c8c8c</color>
+	<color name="gray_pro_bg_photo">#dadada</color>
+	
+	<color name="gray_prostage_bg">#eaeaea</color>
+	<color name="gray_prostage_txt">#939393</color>
+	
+	<color name="red_pro_txt">#fc7812</color>
+	<color name="gray_proall_bg">#efeded</color>
+	
+	<color name="gray_detial_bg">#e5e5e5</color>
+	<color name="gray_detial_txt">#7d7d7d</color>
+	<color name="gray_detial_txtbg">#99242424</color>
+	<color name="red_detial_txt">#ef7678</color>
+	
+</resources>
