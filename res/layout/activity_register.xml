@@ -39,6 +39,14 @@
     </RelativeLayout>
     
     <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="2" >
+    
+    
+    
+    <LinearLayout 
        android:layout_width="match_parent"
        android:layout_height="0dp"
        android:background="#ffffff" 
@@ -56,7 +64,7 @@
             android:background="@drawable/login_background"
             android:ems="10"
             android:hint="填写手机号"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="10dp"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:singleLine="true"
@@ -65,26 +73,56 @@
             >
         </EditText>
         
-          <View style="@style/view_line"/>     
-     
+        
+    </LinearLayout>
+    
+     <View 
+              style="@style/view_line"
+              /> 
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:background="#ffffff"
+        android:layout_weight="1" >
+
         <EditText
             android:id="@+id/et_verification"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:background="@drawable/login_background"
             android:ems="10"
             android:hint="填写验证码"
-            android:layout_marginTop="2dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:singleLine="true"
             android:onClick="onClick"
-            android:textSize="@dimen/activity_14_size" 
-            android:drawableRight="@drawable/register_fond"
-            >
+            android:paddingLeft="30dp"
+            android:paddingRight="15dp"
+			android:layout_gravity="center"
+            android:singleLine="true"
+            android:textSize="@dimen/activity_14_size" >
+
+            <requestFocus />
         </EditText>
         
+        <ImageView 
+            android:id="@+id/im_send"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+	        android:layout_gravity="center"
+            android:src="@drawable/register_fond"
+            android:paddingRight="15dp"
+            
+            />
+        
     </LinearLayout>
+    </LinearLayout>
+    
+    
+    
+    
+    
     
     
     <LinearLayout 
@@ -95,13 +133,13 @@
        android:layout_marginTop="20dp"
        android:paddingLeft="15dp"
        android:paddingRight="15dp"
-       android:layout_weight="1.5"
+       android:layout_weight="2"
         >
            
      <EditText
             android:id="@+id/et_username"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:background="@drawable/login_background"
             android:ems="10"
             android:hint="填写用户名"
@@ -110,6 +148,7 @@
             android:paddingRight="15dp"
             android:singleLine="true"
             android:onClick="onClick"
+            android:layout_weight="1"
             android:textSize="@dimen/activity_14_size" 
             >
         </EditText>
@@ -119,7 +158,7 @@
         <EditText
             android:id="@+id/et_userpassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:background="@drawable/login_background"
             android:ems="10"
             android:hint="填写密码"
@@ -128,6 +167,7 @@
             android:paddingRight="15dp"
             android:singleLine="true"
             android:onClick="onClick"
+            android:layout_weight="1"
             android:textSize="@dimen/activity_14_size" 
             >
         </EditText>
@@ -137,7 +177,7 @@
         <EditText
             android:id="@+id/et_usersecendpassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:background="@drawable/login_background"
             android:ems="10"
             android:hint="确认密码"
@@ -146,6 +186,7 @@
             android:paddingRight="15dp"
             android:singleLine="true"
             android:onClick="onClick"
+            android:layout_weight="1"
             android:textSize="@dimen/activity_14_size" 
             >
         </EditText>
