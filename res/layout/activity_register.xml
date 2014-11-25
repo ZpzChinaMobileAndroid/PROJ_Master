@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
-    android:background="#f5f6f8">
+    android:background="@color/register">
     
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,6 +34,7 @@
             android:src="@drawable/register_back" 
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
+            android:onClick="onClick"
             />
 
     </RelativeLayout>
@@ -69,6 +70,7 @@
             android:paddingRight="15dp"
             android:singleLine="true"
             android:onClick="onClick"
+            android:inputType="number"
             android:textSize="@dimen/activity_14_size" 
             >
         </EditText>
@@ -105,21 +107,21 @@
             <requestFocus />
         </EditText>
         
-        <ImageView 
-            android:id="@+id/im_send"
+        <Button 
+            android:id="@+id/bt_send"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
 	        android:layout_gravity="center"
-            android:src="@drawable/register_fond"
-            android:paddingRight="15dp"
-            
+            android:background="@drawable/register_fond"
+            android:onClick="onClick"
+            android:text="发送验证码"
+            android:textColor="@color/white"
+            android:layout_marginRight="20dp"
             />
         
     </LinearLayout>
     </LinearLayout>
-    
-    
     
     
     
@@ -207,16 +209,18 @@
 	     android:layout_width="match_parent"
 	     android:layout_height="wrap_content"
 	     android:src="@drawable/register_agree"
-	     android:layout_gravity="center_horizontal" />
+	     android:layout_gravity="center_horizontal" 
+	     android:onClick="onClick"/>
 	    
 	
 	    
-	    <ImageView 
-	        android:id="@+id/im_countersign"
+	    <Button 
+	        android:id="@+id/bt_countersign"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	        android:src="@drawable/register_register"
+	        android:background="@drawable/register_register"
 	        android:layout_marginTop="10dp"
+	        android:onClick="onClick"
 	        />
 	    
 	</LinearLayout>

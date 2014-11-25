@@ -65,6 +65,7 @@
             android:paddingLeft="15dp"
             android:singleLine="true"
             android:onClick="onClick"
+            android:inputType="number"
             android:drawableLeft="@drawable/login_user"
             android:textSize="@dimen/activity_14_size" >
 
@@ -107,19 +108,18 @@
          android:text="登\t陆"   
          android:textColor="@color/white"   
          android:onClick="onClick"
-         android:background="@drawable/login_landing"  />
+         android:background="@drawable/login_backgroud_selector"  />
         
         
-        
-          <Button 
+         <Button 
          android:id="@+id/bt_register"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         android:text="注\t测"   
+         android:text="注\t册"   
          android:textColor="@color/white"  
          android:onClick="onClick" 
          android:layout_marginTop="10dp"
-         android:background="@drawable/login_register"  />
+         android:background="@drawable/login_register_backgroud"  />
         
     </LinearLayout>
     
@@ -131,7 +131,7 @@
        android:orientation="horizontal"
        android:gravity="bottom"
        android:layout_weight="2"
-       android:layout_marginBottom="10dp"
+       android:layout_marginBottom="20dp"
         >
         
        <TextView 
