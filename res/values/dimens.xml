@@ -4,14 +4,22 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="activity_title_size">20sp</dimen>
-    <dimen name="activity_button_size">18sp</dimen>
-    
     <dimen name="activity_12_size">12sp</dimen>
     <dimen name="activity_14_size">14sp</dimen>
     <dimen name="activity_16_size">16sp</dimen>
     <dimen name="activity_18_size">18sp</dimen>
     <dimen name="activity_20_size">20sp</dimen>
+    
+    <dimen name="activity_title_size">16sp</dimen>
+    <dimen name="activity_btn_size">18sp</dimen>
+    
+    <dimen name="padding_all">20dp</dimen>
+    <dimen name="padding_tb20">20dp</dimen>
+    <dimen name="padding_tb15">15dp</dimen>
+    <dimen name="padding_tb10">10dp</dimen>
+    <dimen name="padding_tb5">5dp</dimen>
+    <dimen name="drawable_padding">10dp</dimen>
+    
     
     <dimen name="slidingmenu_offset">60dp</dimen>
     <dimen name="list_padding">10dp</dimen>
@@ -25,7 +33,6 @@
     
     <dimen name="pro_item_paddingall">15dp</dimen>
     <dimen name="pro_item_drawmargin">10dp</dimen>
-    <dimen name="pro_item_pall">20dp</dimen>
     
      <dimen name="pro_detial_pall">10dp</dimen>
      <dimen name="pro_detial_marg1">1dp</dimen>

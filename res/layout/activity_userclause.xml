@@ -2,60 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@color/register">
-    
+    android:orientation="vertical" >
 
-      <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/padding_tb20"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
         android:orientation="vertical" >
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:src="@color/backgroud" />
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="使用条款"
-            android:textColor="@color/white"
-            android:textSize="@dimen/activity_18_size" />
-
-        
-        <ImageView
-            android:id="@+id/im_clauseback"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/register_back" 
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
-            android:onClick="onClick"
-            />
-
-    </RelativeLayout>
-    
-      
-      
-      
-    <LinearLayout 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/white"
-        android:layout_marginTop="25dp" >
-        
-        
-        <ImageView 
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:src="@drawable/resigter_userclause"    />
-        
+            android:layout_height="match_parent"
+            android:scaleType="fitStart"
+            android:src="@drawable/resigter_userclause" />
     </LinearLayout>
-    
+
 </LinearLayout>

@@ -1,22 +1,22 @@
 package com.zhongji.master.android.phone.base;
 
-import com.zhongji.master.android.phone.R;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.zhongji.master.android.phone.R;
+import com.zhongji.master.android.phone.until.DensityUtil;
+
 public abstract class BaseSecondActivity extends BaseActivity implements OnClickListener{
 	
+	private RadioGroup base_ragroup_bottom;
 	private TextView tv_left, tv_right;
 
 	@Override
@@ -28,79 +28,55 @@ public abstract class BaseSecondActivity extends BaseActivity implements OnClick
 	public void setContentView(int layoutResID) {
 		// TODO Auto-generated method stub
 	    
-	//	View view = View.inflate(this, R.layout.base_activity_index, null);
-	//	LinearLayout base_layout_view = (LinearLayout) view.findViewById(R.id.base_layout_view);
-	//	View child = View.inflate(this, layoutResID, null);
-	//	child.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-	//	base_layout_view.addView(child);
-	//	setContentView(view);
-		
-//		//侧滑设置
-//	    initMenu();
-				
+		View view = View.inflate(this, R.layout.base_activity_index, null);
+		LinearLayout base_layout_view = (LinearLayout) view.findViewById(R.id.base_layout_view);
+		View child = View.inflate(this, layoutResID, null);
+		child.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+		base_layout_view.addView(child);
+		setContentView(view);
 		init();
 		
+		base_ragroup_bottom = (RadioGroup) findViewById(R.id.base_ragroup_bottom);
+		base_ragroup_bottom.setVisibility(View.GONE);
 	}
 	
-//	public void setLeftBtn() {
-//		tv_left = (TextView) findViewById(R.id.tv_left);
-//	//	setDistanceLeft(tv_left, R.drawable.pro_back);
-//		tv_left.setOnClickListener(this);
-//		tv_left.setTextColor(Color.TRANSPARENT);
-//		tv_left.setVisibility(View.VISIBLE);
-//	}
-//	
-//	public void setRightBtn() {
-//		tv_right = (TextView) findViewById(R.id.tv_right);
-//		setDistanceRight(tv_right, R.drawable.pro_gou);
-//		tv_right.setOnClickListener(this);
-//		tv_right.setTextColor(Color.TRANSPARENT);
-//		tv_right.setVisibility(View.VISIBLE);
-//	}
-//	
-//	public void setRightBtn(OnClickListener listener) {
-//		tv_right = (TextView) findViewById(R.id.tv_right);
-//		setDistanceRight(tv_right, R.drawable.pro_gou);
-//		tv_right.setOnClickListener(listener);
-//		tv_right.setTextColor(Color.TRANSPARENT);
-//		tv_right.setVisibility(View.VISIBLE);
-//	}
+	public void setLeftBtn() {
+		tv_left = (TextView) findViewById(R.id.tv_left);
+		tv_left.setOnClickListener(this);
+		tv_left.setTextColor(Color.TRANSPARENT);
+		tv_left.setVisibility(View.VISIBLE);
+		tv_left.setGravity(Gravity.CENTER_VERTICAL);
+		tv_left.setText("返回");
+		Drawable drawable = getResources().getDrawable(R.drawable.register_back);
+		drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+		tv_left.setCompoundDrawables(drawable, null, null, null);
+	}
 	
-//	public void setRightBtnUpload(OnClickListener listener) {
-//		tv_right = (TextView) findViewById(R.id.tv_right);
-//		setDistanceRight(tv_right, R.drawable.ic_upload);
-//		tv_right.setOnClickListener(listener);
-//		tv_right.setTextColor(Color.TRANSPARENT);
-//		tv_right.setVisibility(View.VISIBLE);
-//	}
-//	
-//	public void setRightBtnGone() {
-//		tv_right = (TextView) findViewById(R.id.tv_right);
-//		tv_right.setVisibility(View.GONE);
-//	}
-//	
-//	public void setRightBtnEdit(OnClickListener listener) {
-//		tv_right = (TextView) findViewById(R.id.tv_right);
-//		setDistanceRight(tv_right, R.drawable.ic_edit);
-//		tv_right.setOnClickListener(listener);
-//		tv_right.setTextColor(Color.TRANSPARENT);
-//		tv_right.setVisibility(View.VISIBLE);
-//	}
-//	
-//	private void setDistanceLeft(TextView tv, int resId) {
-//		Drawable drawable = getResources().getDrawable(resId);
-//		drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-//		tv.setCompoundDrawables(drawable, null, null, null);
-//		tv.setText("间距");
-//	}
-//	
-//	private void setDistanceRight(TextView tv, int resId) {
-//		Drawable drawable = getResources().getDrawable(resId);
-//		drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-//		tv.setCompoundDrawables(null, null, drawable, null);
-//		tv.setText("间距");
-//	}
-//	
+	public void setLeftBtn_X() {
+		tv_left = (TextView) findViewById(R.id.tv_left);
+		RelativeLayout.LayoutParams rl = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+		rl.addRule(RelativeLayout.CENTER_VERTICAL);
+		rl.setMargins(DensityUtil.dip2px(this, 20), 0, 0, 0);
+		tv_left.setLayoutParams(rl);
+		tv_left.setOnClickListener(this);
+		tv_left.setTextColor(Color.TRANSPARENT);
+		tv_left.setVisibility(View.VISIBLE);
+		tv_left.setGravity(Gravity.CENTER_VERTICAL);
+		tv_left.setText("返回");
+		
+		Drawable drawable = getResources().getDrawable(R.drawable.login_anonymity);
+		drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+		tv_left.setCompoundDrawables(drawable, null, null, null);
+	}
+	
+	public void setRightBtn(OnClickListener listener) {
+		tv_right = (TextView) findViewById(R.id.tv_right);
+		tv_right.setOnClickListener(listener);
+		tv_right.setTextColor(Color.TRANSPARENT);
+		tv_right.setVisibility(View.VISIBLE);
+	}
+	
+	
 //	/**
 //	 * 设置搜索背景
 //	 * 
@@ -127,7 +103,7 @@ public abstract class BaseSecondActivity extends BaseActivity implements OnClick
 //	}
 //	
 //	/**
-//	 * 设置搜索�?
+//	 * 设置搜索条
 //	 * 
 //	 * @param title
 //	 */
@@ -141,49 +117,23 @@ public abstract class BaseSecondActivity extends BaseActivity implements OnClick
 //		et_seach_result_start.setVisibility(View.VISIBLE);
 //		
 //	}
-//	
-//	public void onClick(View v) {
-//		if (v.getId() == R.id.tv_left) {
-//			// �?
-//			finish();
-//		} else if (v.getId() == R.id.tv_right) {
-//			// �?
-//		} else if (v.getId() == R.id.tv_clear) {
-//			// 清除缓存
-//			showAkertDialog("是否清除�?��本地数据�?, new DialogInterface.OnClickListener() {
-//				@Override
-//				public void onClick(DialogInterface dialog,
-//						int which) {
-//					// TODO Auto-generated method stub
-//					DataCleanManager
-//							.cleanApplicationData(BaseSecondActivity.this);
-//				}
-//			});
-//		} else if (v.getId() == R.id.tv_editpass) {
-//			// 修改密码
-//			Intent intent = new Intent(BaseSecondActivity.this, EditPasswordActivity.class);
-//			startActivity(intent);
-//		} else if (v.getId() == R.id.tv_logout) {
-//			// �?��登录 
-//			showAkertDialog("�?��后将清除�?��本地数据�?, new DialogInterface.OnClickListener() {
-//				@Override
-//				public void onClick(DialogInterface dialog,
-//						int which) {
-//					// TODO Auto-generated method stub
-//					showProgressDialog();
-//					logout();
-//				}
-//			});
-//		}
-//	}
 	
-//	/**
-//	 * 设置标题
-//	 * 
-//	 * @param title
-//	 */
-//	public void setTitle(String title) {
-//		TextView tv_title = (TextView) findViewById(R.id.tv_title);
-//		tv_title.setText(title);
-//	}
+	public void onClick(View v) {
+		if (v.getId() == R.id.tv_left) {
+			// 左
+			finish();
+		} else if (v.getId() == R.id.tv_right) {
+			// 右
+		}
+	}
+	
+	/**
+	 * 设置标题
+	 * 
+	 * @param title
+	 */
+	public void setTitle(String title) {
+		TextView tv_title = (TextView) findViewById(R.id.tv_title);
+		tv_title.setText(title);
+	}
 }

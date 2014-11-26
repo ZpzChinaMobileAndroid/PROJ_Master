@@ -44,32 +44,25 @@
     
     <!-- 线 -->
     <style name="view_line">
-        <item name="android:background">#d3d3d3</item>
+        <item name="android:background">@color/gray_txt_hint</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
     </style>
     
     <style name="view_line2">
-        <item name="android:background">@color/blue_line</item>
+        <item name="android:background">@color/black</item>
         <item name="android:layout_width">1dp</item>
         <item name="android:layout_height">match_parent</item>
     </style>
     
-    <!-- 项目编辑框样式 -->
-    <style name="pro_et_style">
-        <item name="android:background">@null</item>
+    <!-- 编辑框样式 -->
+    <style name="et_login_style">
+        <item name="android:background">@drawable/login_background</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:singleLine">true</item>
-        <item name="android:textSize">@dimen/activity_14_size</item>
+        <item name="android:textSize">@dimen/activity_title_size</item>
+        <item name="android:textColorHint">@color/gray_txt_hint</item>
     </style>
     
-     <!-- 项目文本框样式 -->
-    <style name="pro_tv_style">
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:drawablePadding">@dimen/pro_margindrapadding</item>
-        <item name="android:textColor">@color/blue_pro_txt</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
 </resources>

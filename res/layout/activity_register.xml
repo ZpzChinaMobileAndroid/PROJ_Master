@@ -2,227 +2,128 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@color/register">
-    
-    <RelativeLayout
+    android:orientation="vertical" >
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical" >
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:src="@color/backgroud" />
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="注册"
-            android:textColor="@color/white"
-            android:textSize="@dimen/activity_18_size" />
-
-        
-        <ImageView
-            android:id="@+id/im_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/register_back" 
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
-            android:onClick="onClick"
-            />
-
-    </RelativeLayout>
-    
-    <LinearLayout 
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/padding_tb20"
+        android:background="@color/white"
         android:orientation="vertical"
-        android:layout_weight="2" >
-    
-    
-    
-    <LinearLayout 
-       android:layout_width="match_parent"
-       android:layout_height="0dp"
-       android:background="#ffffff" 
-       android:orientation="vertical" 
-       android:layout_marginTop="20dp"
-       android:paddingLeft="15dp"
-       android:paddingRight="15dp"
-       android:layout_weight="1"
-        >
-           
-     <EditText
-            android:id="@+id/et_cellphone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/login_background"
-            android:ems="10"
-            android:hint="填写手机号"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:singleLine="true"
-            android:onClick="onClick"
-            android:inputType="number"
-            android:textSize="@dimen/activity_14_size" 
-            >
-        </EditText>
-        
-        
-    </LinearLayout>
-    
-     <View 
-              style="@style/view_line"
-              /> 
-    
-    <LinearLayout 
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:background="#ffffff"
-        android:layout_weight="1" >
+        android:paddingBottom="@dimen/padding_tb5"
+        android:paddingLeft="@dimen/padding_tb20"
+        android:paddingRight="@dimen/padding_tb20"
+        android:paddingTop="@dimen/padding_tb5" >
 
-        <EditText
-            android:id="@+id/et_verification"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:background="@drawable/login_background"
-            android:ems="10"
-            android:hint="填写验证码"
-            android:onClick="onClick"
-            android:paddingLeft="30dp"
-            android:paddingRight="15dp"
-			android:layout_gravity="center"
-            android:singleLine="true"
-            android:textSize="@dimen/activity_14_size" >
-
-            <requestFocus />
-        </EditText>
-        
-        <Button 
-            android:id="@+id/bt_send"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-	        android:layout_gravity="center"
-            android:background="@drawable/register_fond"
-            android:onClick="onClick"
-            android:text="发送验证码"
-            android:textColor="@color/white"
-            android:layout_marginRight="20dp"
-            />
-        
-    </LinearLayout>
-    </LinearLayout>
-    
-    
-    
-    
-    
-    <LinearLayout 
-       android:layout_width="match_parent"
-       android:layout_height="0dp"
-       android:background="#ffffff" 
-       android:orientation="vertical" 
-       android:layout_marginTop="20dp"
-       android:paddingLeft="15dp"
-       android:paddingRight="15dp"
-       android:layout_weight="2"
-        >
-           
-     <EditText
-            android:id="@+id/et_username"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/login_background"
-            android:ems="10"
-            android:hint="填写用户名"
-            android:layout_marginTop="2dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:singleLine="true"
-            android:onClick="onClick"
             android:layout_weight="1"
-            android:textSize="@dimen/activity_14_size" 
-            >
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/et_cellphone"
+                style="@style/et_login_style"
+                android:ems="10"
+                android:hint="填写手机号"
+                android:inputType="number" >
+            </EditText>
+        </LinearLayout>
+
+        <View style="@style/view_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/et_verification"
+                style="@style/et_login_style"
+                android:layout_width="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1.5"
+                android:ems="10"
+                android:hint="填写验证码" >
+            </EditText>
+
+            <Button
+                android:id="@+id/btn_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/register_fond"
+                android:onClick="onClick"
+                android:text="发送验证码"
+                android:textColor="@color/white"
+                android:textSize="@dimen/activity_title_size" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_tb20"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_tb20"
+        android:paddingRight="@dimen/padding_tb20" >
+
+        <EditText
+            android:id="@+id/et_username"
+            style="@style/et_login_style"
+            android:ems="10"
+            android:hint="填写用户名" >
         </EditText>
-        
-          <View style="@style/view_line"/>     
-     
+
+        <View style="@style/view_line" />
+
         <EditText
             android:id="@+id/et_userpassword"
+            style="@style/et_login_style"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@drawable/login_background"
             android:ems="10"
-            android:hint="填写密码"
-            android:layout_marginTop="2dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:singleLine="true"
-            android:onClick="onClick"
-            android:layout_weight="1"
-            android:textSize="@dimen/activity_14_size" 
-            >
+            android:hint="填写密码" >
         </EditText>
-        
-          <View style="@style/view_line"/>     
-     
+
+        <View style="@style/view_line" />
+
         <EditText
             android:id="@+id/et_usersecendpassword"
+            style="@style/et_login_style"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@drawable/login_background"
             android:ems="10"
-            android:hint="确认密码"
-            android:layout_marginTop="2dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:singleLine="true"
-            android:onClick="onClick"
-            android:layout_weight="1"
-            android:textSize="@dimen/activity_14_size" 
-            >
+            android:hint="确认密码" >
         </EditText>
-        
     </LinearLayout>
-    
-	<LinearLayout 
-	    android:layout_width="match_parent"
-	    android:layout_height="0dp"
-	    android:orientation="vertical" 
-	    android:layout_weight="2"
-	    android:gravity="bottom"
-	    android:layout_marginBottom="20dp"
-	   >
-	    
-	 <ImageView 
-	     android:id="@+id/im_clause"
-	     android:layout_width="match_parent"
-	     android:layout_height="wrap_content"
-	     android:src="@drawable/register_agree"
-	     android:layout_gravity="center_horizontal" 
-	     android:onClick="onClick"/>
-	    
-	
-	    
-	    <Button 
-	        android:id="@+id/bt_countersign"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:background="@drawable/register_register"
-	        android:layout_marginTop="10dp"
-	        android:onClick="onClick"
-	        />
-	    
-	</LinearLayout>
-    
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_all" >
+
+        <ImageView
+            android:id="@+id/iv_clause"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:onClick="onClick"
+            android:src="@drawable/register_agree" />
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_tb10"
+            android:background="@drawable/register_register"
+            android:onClick="onClick"
+            android:text="注\t\t\t\t册"
+            android:textColor="@color/white"
+            android:textSize="@dimen/activity_btn_size" />
+    </LinearLayout>
+
 </LinearLayout>
