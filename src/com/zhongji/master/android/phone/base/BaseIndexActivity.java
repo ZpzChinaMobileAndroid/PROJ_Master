@@ -1,22 +1,31 @@
 package com.zhongji.master.android.phone.base;
 
-import com.zhongji.master.android.phone.R;
-
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
+
+import com.zhongji.master.android.phone.R;
+import com.zhongji.master.android.phone.activity.company.CompanyActivity;
+import com.zhongji.master.android.phone.activity.contacts.ContactsActivity;
+import com.zhongji.master.android.phone.activity.product.ProductActivity;
+import com.zhongji.master.android.phone.activity.project.ProjectActivity;
 
 
 public abstract class BaseIndexActivity extends BaseActivity implements OnClickListener{
 
 	private TextView tv_left, tv_right;
+	private RadioGroup base_ragroup_bottom;
+	private int state = 0;
+	private int INITIAL_STATE = 0;
+	private int RUNNING_STATE = 1;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,28 +36,84 @@ public abstract class BaseIndexActivity extends BaseActivity implements OnClickL
 	public void setContentView(int layoutResID) {
 		// TODO Auto-generated method stub
 //	    
-//		View view = View.inflate(this, R.layout.base_activity_index, null);
-//		LinearLayout base_layout_view = (LinearLayout) view.findViewById(R.id.base_layout_view);
-//		View child = View.inflate(this, layoutResID, null);
-//		child.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-//		base_layout_view.addView(child);
-//		setContentView(view);
+		View view = View.inflate(this, R.layout.base_activity_index, null);
+		LinearLayout base_layout_view = (LinearLayout) view.findViewById(R.id.base_layout_view);
+		View child = View.inflate(this, layoutResID, null);
+		child.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+		base_layout_view.addView(child);
+		setContentView(view);
 		
-		//侧滑设置
-//	    initMenu();
-//	    setLeftBtn();
-				
 		init();
+		
+		base_ragroup_bottom = (RadioGroup) findViewById(R.id.base_ragroup_bottom);
+		base_ragroup_bottom.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(RadioGroup group, int checkedId) {
+				// TODO Auto-generated method stub
+				startActivity(checkedId);
+			}
+
+		});
+	}
+	
+	private void startActivity(int checkedId) {
+		// TODO Auto-generated method stub
+		if(state == INITIAL_STATE){
+			state = RUNNING_STATE;
+			return;
+		}
+		
+		Intent intent = new Intent();
+//		intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+		switch(checkedId){
+		case R.id.radio0:
+			//人脉
+			intent.setClass(this, ContactsActivity.class);
+			break;
+		case R.id.radio1:
+			//项目
+			intent.setClass(this, ProjectActivity.class);
+			break;
+		case R.id.radio2:
+			//公司
+			intent.setClass(this, CompanyActivity.class);
+			break;
+		case R.id.radio3:
+			//产品
+			intent.setClass(this, ProductActivity.class);
+			break;
+		}
+		
+		startActivity(intent);
+		overridePendingTransition(0, 0);
 	}
 
-	public void setMenuName(String name){
-		tv_name.setText(name);
+	public int getRaGroupIndex(){
+		String name = getRunningActivityName();
+		if(ContactsActivity.class.toString().contains(name)){
+			return 0;
+		}else if(ProjectActivity.class.toString().contains(name)){
+			return 1;
+		}else if(CompanyActivity.class.toString().contains(name)){
+			return 2;
+		}else if(ProductActivity.class.toString().contains(name)){
+			return 3;
+		}
+		return 0;
 	}
 	
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
+		RadioButton childRaBtn = (RadioButton) base_ragroup_bottom.getChildAt(getRaGroupIndex());
+		if(childRaBtn.isChecked()){
+			state = RUNNING_STATE;
+		}else{
+			state = INITIAL_STATE;
+		}
+		childRaBtn.setChecked(true);
 	}
 	
 	
@@ -77,45 +142,10 @@ public abstract class BaseIndexActivity extends BaseActivity implements OnClickL
 	 * 获取当前activity
 	 * @return
 	 */
-	@SuppressWarnings("unused")
 	private String getRunningActivityName(){    
         String contextString = BaseIndexActivity.this.toString();
         return contextString.substring(contextString.lastIndexOf(".")+1, contextString.indexOf("@"));
 	}
-	
-//	public void setLeftBtn() {
-//		tv_left = (TextView) findViewById(R.id.tv_left);
-//		setDistanceLeft(tv_left, R.drawable.home_menu);
-//		tv_left.setOnClickListener(this);
-//		tv_left.setVisibility(View.VISIBLE);
-//		tv_left.setTextColor(Color.TRANSPARENT);
-////		tv_left.setBackgroundResource(R.drawable.btn_search);
-//	}
-//
-//	public void setRightBtn() {
-//		tv_right = (TextView) findViewById(R.id.tv_right);
-//		tv_right.setOnClickListener(this);
-//		setDistanceRight(tv_right, 0);
-//		tv_right.setText("");
-//		tv_right.setVisibility(View.VISIBLE);
-////		tv_right.setBackgroundResource(R.drawable.btn_sort);
-//	}
-//	
-//	private void setDistanceLeft(TextView tv, int resId) {
-//		Drawable drawable = getResources().getDrawable(resId);
-//		drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-//		tv.setCompoundDrawables(drawable, null, null, null);
-//		tv.setText("间距");
-//	}
-//	
-//	private void setDistanceRight(TextView tv, int resId) {
-//		Drawable drawable = getResources().getDrawable(resId);
-//		drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-//		tv.setCompoundDrawables(null, null, drawable, null);
-//		tv.setText("间距");
-//		tv.setTextColor(Color.TRANSPARENT);
-//	}
-
 	
 
 	/**
@@ -123,9 +153,21 @@ public abstract class BaseIndexActivity extends BaseActivity implements OnClickL
 	 * 
 	 * @param title
 	 */
-//	public void setTitle(String title) {
-//		TextView tv_title = (TextView) findViewById(R.id.tv_title);
-//		tv_title.setText(title);
-//	}
+	public void setTitle(String title) {
+		TextView tv_title = (TextView) findViewById(R.id.tv_title);
+		tv_title.setText(title);
+	}
+	
+	
+	public void setRightBtn(View.OnClickListener listener) {
+		tv_right = (TextView) findViewById(R.id.tv_right);
+		tv_right.setOnClickListener(listener);
+		tv_right.setText("设置");
+		tv_right.setVisibility(View.VISIBLE);
+		tv_right.setTextColor(Color.BLUE);
+//		Drawable drawable = getResources().getDrawable(R.drawable.IC);
+//		drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+//		tv_right.setCompoundDrawables(null, null, drawable, null);
+	}
 	
 }

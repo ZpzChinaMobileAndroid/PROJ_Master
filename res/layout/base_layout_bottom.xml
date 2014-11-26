@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/base_ragroup_bottom"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="@color/blue"
+    android:gravity="bottom"
+    android:orientation="horizontal" >
+
+    <RadioButton
+        android:layout_gravity="bottom"
+        android:id="@+id/radio0"
+        style="@style/base_bottom_btn_style"
+        android:checked="true"
+        android:drawableTop="@drawable/base_layout_bottom_rabtn_qs_selector"
+        android:text="@string/index_qa_str" />
+
+    <RadioButton
+        android:layout_gravity="bottom"
+        android:id="@+id/radio1"
+        style="@style/base_bottom_btn_style"
+        android:drawableTop="@drawable/base_layout_bottom_rabtn_tag_selector"
+        android:text="@string/index_tag_str" />
+
+    <RadioButton
+        android:id="@+id/radio2"
+        style="@style/base_bottom_btn_style"
+        android:drawableTop="@drawable/base_layout_bottom_rabtn_message_selector"
+        android:text="@string/index_message_str" />
+
+    <RadioButton
+        android:id="@+id/radio3"
+        style="@style/base_bottom_btn_style"
+        android:drawableTop="@drawable/base_layout_bottom_rabtn_center_selector"
+        android:text="@string/index_center_str" />
+
+</RadioGroup>

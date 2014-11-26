@@ -8,11 +8,10 @@
     <string name="xunfei_speech_app_id">54632333</string>
 
     <!-- 模块首页文章 -->
-    <string name="index_qa_str">问答</string>
-    <string name="index_tag_str">标签</string>
-    <string name="index_ask_str">提问</string>
-    <string name="index_message_str">信息</string>
-    <string name="index_center_str">个人</string>
+    <string name="index_qa_str">人脉</string>
+    <string name="index_tag_str">项目</string>
+    <string name="index_message_str">公司</string>
+    <string name="index_center_str">产品</string>
     
     <!-- 下拉刷新 -->
     <string name="get_more">正在帮您加载数据...</string>
