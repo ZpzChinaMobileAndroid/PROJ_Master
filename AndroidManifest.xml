@@ -73,6 +73,14 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" >
         </activity>
+        
+        <!-- 确认找回 -->
+        <activity
+            android:name="com.zhongji.master.android.phone.login.AffirmActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        
     </application>
 
 </manifest>

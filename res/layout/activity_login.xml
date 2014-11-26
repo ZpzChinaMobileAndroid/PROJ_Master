@@ -38,7 +38,7 @@
 
         <EditText
             android:id="@+id/et_userpassword"
-            style="@style/et_login_style"
+            style="@style/et_login_style" 
             android:layout_marginTop="@dimen/padding_tb5"
             android:drawableLeft="@drawable/login_password"
             android:drawablePadding="@dimen/drawable_padding"
@@ -92,6 +92,7 @@
             android:textColor="@color/gray_txt_hint" />
 
         <TextView
+            android:clickable="true"
             android:id="@+id/tv_forget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -44,7 +44,7 @@ public class LoginActivity extends BaseSecondActivity implements
 
 		setTitle("");
 		setLeftBtn_X();
-		
+
 		et_username.setText("18766142992");
 		et_userpassword.setText("111");
 	}
@@ -79,6 +79,12 @@ public class LoginActivity extends BaseSecondActivity implements
 			Intent intent = new Intent(LoginActivity.this,
 					FoundPasswordActivity.class);
 			startActivity(intent);
+		} else if (arg0.getId() == R.id.tv_forget) {
+			// 找回密码
+			Intent intent = new Intent(LoginActivity.this,
+					FoundPasswordActivity.class);
+			startActivity(intent);
+
 		}
 	}
 
