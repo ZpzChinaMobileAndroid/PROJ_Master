@@ -72,7 +72,7 @@ public abstract class ResponseUtils extends AsyncHttpResponseHandler {
 
 	public boolean getData(BaseBean bean) {
 		
-		if (!"200".equals(bean.getStatus().getStatusCode())) {
+		if (!"1300".equals(bean.getStatus().getStatusCode())) {
 			if("1301".equals(bean.getStatus().getStatusCode())){
 				ToastUtils.getStance(context).showShortToast("参数异常");
 			}else if("1302".equals(bean.getStatus().getStatusCode())){

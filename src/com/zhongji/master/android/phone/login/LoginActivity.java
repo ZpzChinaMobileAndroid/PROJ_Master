@@ -21,16 +21,21 @@ import com.zhongji.master.android.phone.net.ResponseUtils;
 import com.zhongji.master.android.phone.until.JsonUtils;
 import com.zhongji.master.android.phone.until.MD5;
 
+import android.R.color;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.MediaStore.Images;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-public class LoginActivity  extends BaseActivity implements OnClickListener {
+public class LoginActivity  extends BaseActivity implements OnClickListener{
 
 	@ViewInject(id=R.id.login_anonymity)
 	private ImageView login_anonymity;
@@ -53,21 +58,21 @@ public class LoginActivity  extends BaseActivity implements OnClickListener {
 		// TODO 自动生成的方法存根
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		
+		init();
 	}
 
 	protected void init() {
 		// TODO 自动生成的方法存根
 		
-	//	et_username.setText("");
-	//	et_userpassword.setText("");
+		et_username.setText("18766142992");
+		et_userpassword.setText("111");
 	}
 
 
-	@Override
 	public void onClick(View arg0) {
 		// TODO 自动生成的方法存根
 		if(arg0.getId()==R.id.bt_landing){
+			
 		//登陆	
 		String username=et_username.getText().toString().trim();
 		String userpassword=et_userpassword.getText().toString().trim();
@@ -107,8 +112,8 @@ public class LoginActivity  extends BaseActivity implements OnClickListener {
 		// TODO 自动生成的方法存根
 		
 		Map<String, String> content=new LinkedHashMap<String, String>();
-		content.put("", username);
-		content.put("", MD5.md5(userpassword).substring(8,24));
+		content.put("userName", username);
+		content.put("password", MD5.md5(userpassword).substring(8,24));
 		content.put("deviceType", "android");
 		HttpRestClient.post(LoginActivity.this,HttpAPI.USERS_LOGIN, JsonUtils.change(content, false),new ResponseUtils(LoginActivity.this) {
 			
@@ -123,22 +128,15 @@ public class LoginActivity  extends BaseActivity implements OnClickListener {
 				}	
 				showShortToast("登陆成功");
 				
-				Intent intent= new Intent(LoginActivity.this,AAA.class);
+				
+				Intent intent= new Intent(LoginActivity.this,UserClauseActivity.class);
 				startActivity(intent);
 				}else{
 					showNetShortToast(httpCode);
 				}
 			}
 		});
-		
-		
 	}
-	@Override
-	protected void onNewIntent(Intent intent) {
-		// TODO Auto-generated method stub
-		super.onNewIntent(intent);
-		et_username.setText("");
-		et_userpassword.setText("");
-	}
-
 }
+
+

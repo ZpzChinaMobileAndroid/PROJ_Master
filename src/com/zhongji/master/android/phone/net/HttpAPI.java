@@ -10,7 +10,7 @@ package com.zhongji.master.android.phone.net;
  */
 public class HttpAPI {
 
-	public static final int HTTP_SUCCESS_CODE = 1300;
+	public static final int HTTP_SUCCESS_CODE = 200;
 	public static final int HTTP_TIME_OUT = 0;
 	public static final int HTTP_NOT_FOUND_SERVICE = 404;
 	public static final int HTTP_SERVER_ERROR = 500;

@@ -24,7 +24,6 @@ import android.util.Log;
 import android.widget.Toast;
 
 /**
- * ��������get/post������
  * @author Administrator
  *
  */

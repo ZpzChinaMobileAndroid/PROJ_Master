@@ -11,10 +11,6 @@ import com.loopj.android.http.RequestParams;
 /**
  * @package com.ananda.tailing.bike.util
  * @description: 网络请求连接管理类
- * @version 1.0
- * @author JackieCheng
- * @email xiaming5368@163.com
- * @date 2014-3-6 下午5:14:10
  */
 public class HttpRestClient {
 
@@ -86,7 +82,10 @@ public class HttpRestClient {
 
 	public static void post(Context context, String url, StringEntity requestParams, ResponseUtils responseUtils) {
 
-		httpClient.post(context, getAbsoluteUrl(url), requestParams, "application/json; charset=UTF-8", responseUtils);
+		
+		System.out.println("url:"+getAbsoluteUrl(url));
+		System.out.println("requestParams:"+requestParams.toString());
+		httpClient.post(context, getAbsoluteUrl(url), requestParams, "application/json; charset=UTF-8",responseUtils);
 	}
 	
 	public static void put(Context context, String url, StringEntity requestParams, ResponseUtils responseUtils) {

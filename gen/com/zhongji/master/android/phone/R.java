@@ -8,63 +8,75 @@
 package com.zhongji.master.android.phone;
 
 public final class R {
+    public static final class anim {
+        public static final int in_from_left=0x7f040000;
+        public static final int inout=0x7f040001;
+        public static final int onout=0x7f040002;
+        public static final int out_to_left=0x7f040003;
+        public static final int zoonin=0x7f040004;
+    }
     public static final class attr {
     }
     public static final class color {
-        public static final int backgroud=0x7f040007;
-        public static final int black=0x7f040002;
-        public static final int blue=0x7f040003;
-        public static final int blue_bg=0x7f040009;
-        public static final int blue_btn=0x7f040008;
-        public static final int blue_line=0x7f04000a;
-        public static final int blue_pro_txt=0x7f04000b;
-        public static final int gray=0x7f040005;
-        public static final int gray_detial_bg=0x7f040013;
-        public static final int gray_detial_txt=0x7f040014;
-        public static final int gray_detial_txtbg=0x7f040015;
-        public static final int gray_pro_bg_photo=0x7f04000e;
-        public static final int gray_pro_bg_title=0x7f04000c;
-        public static final int gray_pro_txt=0x7f04000d;
-        public static final int gray_proall_bg=0x7f040012;
-        public static final int gray_prostage_bg=0x7f04000f;
-        public static final int gray_prostage_txt=0x7f040010;
+        public static final int backgroud=0x7f050007;
+        public static final int black=0x7f050002;
+        public static final int blue=0x7f050003;
+        public static final int blue_bg=0x7f05000c;
+        public static final int blue_btn=0x7f05000b;
+        public static final int blue_line=0x7f05000d;
+        public static final int blue_pro_txt=0x7f05000e;
+        public static final int gray=0x7f050005;
+        public static final int gray_detial_bg=0x7f050016;
+        public static final int gray_detial_txt=0x7f050017;
+        public static final int gray_detial_txtbg=0x7f050018;
+        public static final int gray_pro_bg_photo=0x7f050011;
+        public static final int gray_pro_bg_title=0x7f05000f;
+        public static final int gray_pro_txt=0x7f050010;
+        public static final int gray_proall_bg=0x7f050015;
+        public static final int gray_prostage_bg=0x7f050012;
+        public static final int gray_prostage_txt=0x7f050013;
+        public static final int langding_color=0x7f050009;
+        public static final int login_langding_color=0x7f05001a;
+        public static final int login_register_color=0x7f05001b;
         /**  常用的颜色 
          */
-        public static final int red=0x7f040000;
-        public static final int red_detial_txt=0x7f040016;
-        public static final int red_pro_txt=0x7f040011;
-        public static final int transparent=0x7f040006;
-        public static final int white=0x7f040001;
-        public static final int yellow=0x7f040004;
+        public static final int red=0x7f050000;
+        public static final int red_detial_txt=0x7f050019;
+        public static final int red_pro_txt=0x7f050014;
+        public static final int register=0x7f050008;
+        public static final int register_color=0x7f05000a;
+        public static final int transparent=0x7f050006;
+        public static final int white=0x7f050001;
+        public static final int yellow=0x7f050004;
     }
     public static final class dimen {
-        public static final int activity_12_size=0x7f050004;
-        public static final int activity_14_size=0x7f050005;
-        public static final int activity_16_size=0x7f050006;
-        public static final int activity_18_size=0x7f050007;
-        public static final int activity_20_size=0x7f050008;
-        public static final int activity_button_size=0x7f050003;
+        public static final int activity_12_size=0x7f060004;
+        public static final int activity_14_size=0x7f060005;
+        public static final int activity_16_size=0x7f060006;
+        public static final int activity_18_size=0x7f060007;
+        public static final int activity_20_size=0x7f060008;
+        public static final int activity_button_size=0x7f060003;
         /**  Default screen margins, per the Android Design guidelines. 
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_title_size=0x7f050002;
-        public static final int activity_vertical_margin=0x7f050001;
-        public static final int list_padding=0x7f05000a;
-        public static final int pro_detial_marg1=0x7f050015;
-        public static final int pro_detial_marg10=0x7f050017;
-        public static final int pro_detial_marg20=0x7f050018;
-        public static final int pro_detial_marg5=0x7f050016;
-        public static final int pro_detial_pall=0x7f050014;
-        public static final int pro_item_drawmargin=0x7f050012;
-        public static final int pro_item_paddingall=0x7f050011;
-        public static final int pro_item_pall=0x7f050013;
-        public static final int pro_margin_topbom=0x7f05000f;
-        public static final int pro_marginall=0x7f05000c;
-        public static final int pro_margindrapadding=0x7f05000e;
-        public static final int pro_margintopbom=0x7f05000d;
-        public static final int prostage_marginall=0x7f050010;
-        public static final int shadow_width=0x7f05000b;
-        public static final int slidingmenu_offset=0x7f050009;
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_title_size=0x7f060002;
+        public static final int activity_vertical_margin=0x7f060001;
+        public static final int list_padding=0x7f06000a;
+        public static final int pro_detial_marg1=0x7f060015;
+        public static final int pro_detial_marg10=0x7f060017;
+        public static final int pro_detial_marg20=0x7f060018;
+        public static final int pro_detial_marg5=0x7f060016;
+        public static final int pro_detial_pall=0x7f060014;
+        public static final int pro_item_drawmargin=0x7f060012;
+        public static final int pro_item_paddingall=0x7f060011;
+        public static final int pro_item_pall=0x7f060013;
+        public static final int pro_margin_topbom=0x7f06000f;
+        public static final int pro_marginall=0x7f06000c;
+        public static final int pro_margindrapadding=0x7f06000e;
+        public static final int pro_margintopbom=0x7f06000d;
+        public static final int prostage_marginall=0x7f060010;
+        public static final int shadow_width=0x7f06000b;
+        public static final int slidingmenu_offset=0x7f060009;
     }
     public static final class drawable {
         public static final int base_layout_bottom_rabtn_center_selector=0x7f020000;
@@ -81,45 +93,51 @@ public final class R {
         public static final int ic_xinxi_l=0x7f02000b;
         public static final int ic_xinxi_n=0x7f02000c;
         public static final int login_anonymity=0x7f02000d;
-        public static final int login_background=0x7f02000e;
-        public static final int login_headline=0x7f02000f;
-        public static final int login_landing=0x7f020010;
-        public static final int login_password=0x7f020011;
-        public static final int login_register=0x7f020012;
-        public static final int login_user=0x7f020013;
-        public static final int register_agree=0x7f020014;
-        public static final int register_back=0x7f020015;
-        public static final int register_fond=0x7f020016;
-        public static final int register_register=0x7f020017;
-        public static final int register_top=0x7f020018;
+        public static final int login_backgroud_selector=0x7f02000e;
+        public static final int login_background=0x7f02000f;
+        public static final int login_headline=0x7f020010;
+        public static final int login_landing=0x7f020011;
+        public static final int login_langding_two=0x7f020012;
+        public static final int login_password=0x7f020013;
+        public static final int login_register=0x7f020014;
+        public static final int login_register_backgroud=0x7f020015;
+        public static final int login_register_two=0x7f020016;
+        public static final int login_user=0x7f020017;
+        public static final int register_agree=0x7f020018;
+        public static final int register_back=0x7f020019;
+        public static final int register_fond=0x7f02001a;
+        public static final int register_register=0x7f02001b;
+        public static final int register_top=0x7f02001c;
+        public static final int resigter_userclause=0x7f02001d;
     }
     public static final class id {
-        public static final int advertview=0x7f080001;
-        public static final int base_layout_view=0x7f080011;
-        public static final int base_ragroup_bottom=0x7f080012;
-        public static final int bt_landing=0x7f080006;
-        public static final int bt_register=0x7f080007;
-        public static final int et_cellphone=0x7f08000b;
-        public static final int et_username=0x7f080004;
-        public static final int et_userpassword=0x7f080005;
-        public static final int et_usersecendpassword=0x7f08000e;
-        public static final int et_verification=0x7f08000c;
-        public static final int im_back=0x7f08000a;
-        public static final int im_clause=0x7f08000f;
-        public static final int im_countersign=0x7f080010;
-        public static final int im_send=0x7f08000d;
-        public static final int login_anonymity=0x7f080002;
-        public static final int login_headline=0x7f080003;
-        public static final int radio0=0x7f080013;
-        public static final int radio1=0x7f080014;
-        public static final int radio2=0x7f080015;
-        public static final int radio3=0x7f080016;
-        public static final int textView1=0x7f080000;
-        public static final int textview=0x7f080008;
-        public static final int tv_foundpassword=0x7f080009;
-        public static final int tv_left=0x7f080018;
-        public static final int tv_right=0x7f080019;
-        public static final int tv_title=0x7f080017;
+        public static final int advertview=0x7f090001;
+        public static final int base_layout_view=0x7f090012;
+        public static final int base_ragroup_bottom=0x7f090013;
+        public static final int bt_countersign=0x7f090010;
+        public static final int bt_landing=0x7f090006;
+        public static final int bt_register=0x7f090007;
+        public static final int bt_send=0x7f09000d;
+        public static final int et_cellphone=0x7f09000b;
+        public static final int et_username=0x7f090004;
+        public static final int et_userpassword=0x7f090005;
+        public static final int et_usersecendpassword=0x7f09000e;
+        public static final int et_verification=0x7f09000c;
+        public static final int im_back=0x7f09000a;
+        public static final int im_clause=0x7f09000f;
+        public static final int im_clauseback=0x7f090011;
+        public static final int login_anonymity=0x7f090002;
+        public static final int login_headline=0x7f090003;
+        public static final int radio0=0x7f090014;
+        public static final int radio1=0x7f090015;
+        public static final int radio2=0x7f090016;
+        public static final int radio3=0x7f090017;
+        public static final int textView1=0x7f090000;
+        public static final int textview=0x7f090008;
+        public static final int tv_foundpassword=0x7f090009;
+        public static final int tv_left=0x7f090019;
+        public static final int tv_right=0x7f09001a;
+        public static final int tv_title=0x7f090018;
     }
     public static final class layout {
         public static final int activity_company=0x7f030000;
@@ -131,57 +149,58 @@ public final class R {
         public static final int activity_product=0x7f030006;
         public static final int activity_project=0x7f030007;
         public static final int activity_register=0x7f030008;
-        public static final int base_activity_index=0x7f030009;
-        public static final int base_layout_bottom=0x7f03000a;
-        public static final int base_layout_top=0x7f03000b;
+        public static final int activity_userclause=0x7f030009;
+        public static final int base_activity_index=0x7f03000a;
+        public static final int base_layout_bottom=0x7f03000b;
+        public static final int base_layout_top=0x7f03000c;
     }
     public static final class string {
-        public static final int action_settings=0x7f060001;
-        public static final int app_name=0x7f060000;
+        public static final int action_settings=0x7f070001;
+        public static final int app_name=0x7f070000;
         /**  下拉刷新 
          */
-        public static final int get_more=0x7f060009;
-        public static final int hello_world=0x7f060002;
-        public static final int index_center_str=0x7f060008;
-        public static final int index_message_str=0x7f060007;
+        public static final int get_more=0x7f070009;
+        public static final int hello_world=0x7f070002;
+        public static final int index_center_str=0x7f070008;
+        public static final int index_message_str=0x7f070007;
         /**  模块首页文章 
          */
-        public static final int index_qa_str=0x7f060005;
-        public static final int index_tag_str=0x7f060006;
-        public static final int please_wait_str=0x7f060003;
-        public static final int pull_to_refresh=0x7f06000b;
-        public static final int refreshing=0x7f06000c;
-        public static final int release_to_refresh=0x7f06000a;
-        public static final int updating=0x7f06000d;
-        public static final int xunfei_speech_app_id=0x7f060004;
+        public static final int index_qa_str=0x7f070005;
+        public static final int index_tag_str=0x7f070006;
+        public static final int please_wait_str=0x7f070003;
+        public static final int pull_to_refresh=0x7f07000b;
+        public static final int refreshing=0x7f07000c;
+        public static final int release_to_refresh=0x7f07000a;
+        public static final int updating=0x7f07000d;
+        public static final int xunfei_speech_app_id=0x7f070004;
     }
     public static final class style {
-        public static final int Animation=0x7f070003;
+        public static final int Animation=0x7f080003;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
+        public static final int AppTheme=0x7f080001;
         /**  去掉activity跳转动画 
          */
-        public static final int Theme=0x7f070002;
+        public static final int Theme=0x7f080002;
         /**  底部导航 
          */
-        public static final int base_bottom_btn_style=0x7f070004;
+        public static final int base_bottom_btn_style=0x7f080004;
         /**  项目编辑框样式 
          */
-        public static final int pro_et_style=0x7f070007;
+        public static final int pro_et_style=0x7f080007;
         /**  项目文本框样式 
          */
-        public static final int pro_tv_style=0x7f070008;
+        public static final int pro_tv_style=0x7f080008;
         /**  线 
          */
-        public static final int view_line=0x7f070005;
-        public static final int view_line2=0x7f070006;
+        public static final int view_line=0x7f080005;
+        public static final int view_line2=0x7f080006;
     }
 }

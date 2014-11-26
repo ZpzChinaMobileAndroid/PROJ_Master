@@ -62,7 +62,6 @@ public class FieldUtils {
         }
         
         /**
-         * �õ�ָ��������ֵ
          * @param field
          * @param object
          * @throws IllegalAccessException 
