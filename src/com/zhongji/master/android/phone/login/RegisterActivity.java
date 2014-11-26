@@ -10,6 +10,7 @@ import java.util.Map;
 import net.tsz.afinal.annotation.view.ViewInject;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -44,6 +45,7 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 	private ImageView im_clause;
 	@ViewInject(id=R.id.bt_countersign)
 	private Button bt_countersign;
+	private TimeCount time;
 	
 	
 	@Override
@@ -51,6 +53,8 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 		// TODO 自动生成的方法存根
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_register);
+		time = new TimeCount(60000, 1000);//构造CountDownTimer对象
+		 
 	}
 
 	@Override
@@ -107,8 +111,13 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
     	
        }else if(arg0.getId()==R.id.bt_send){
        //发送验证码	
-    	
-    	
+    	   String cellphone=et_cellphone.getText().toString().trim();
+  		  if(cellphone.equals("")){
+  			  showShortToast("手机号码不正确，请重新输入");
+  			  return;
+  		  }else{
+  		  time.start();
+  		  }
        }else if(arg0.getId()==R.id.im_back){
        //返回登陆   
     	   Intent intent=new Intent(RegisterActivity.this,LoginActivity.class);
@@ -116,6 +125,7 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
     	   finish();
     	   
        }
+	
 	}
 
 	/**
@@ -125,8 +135,7 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 	 * @param userpasword
 	 */
 	
-	private void register(String cellpone, String barcode,String usernameString,
-			String userpassword) {
+	private void register(String cellpone, String barcode,String usernameString,String userpassword) {
 		// TODO 自动生成的方法存根
 		
 		Map<String,String> maps=new LinkedHashMap<String, String>();
@@ -142,19 +151,40 @@ public class RegisterActivity extends BaseActivity implements OnClickListener {
 				// TODO 自动生成的方法存根
 				dismissProgressDialog();
 				if(httpCode==HttpAPI.HTTP_SUCCESS_CODE){
-				UserListBean bean=JSON.parseObject(JsonUtils.parseString(result),UserListBean.class);	
-				if(getData(bean)){
+					UserListBean bean=JSON.parseObject(JsonUtils.parseString(result),UserListBean.class);	
+					if(getData(bean)){
 					return;
 				}	
-				showShortToast("注册成功");
-				
-				Intent intent= new Intent(RegisterActivity.this,LoginActivity.class);
-				startActivity(intent);
+					showShortToast("注册成功");
+					
+					Intent intent= new Intent(RegisterActivity.this,LoginActivity.class);
+					startActivity(intent);
 				}else{
 					showNetShortToast(httpCode);
 				}
 			}
 		});
 		
+	}
+	
+	//倒计时
+	class TimeCount extends CountDownTimer {
+		public TimeCount(long millisInFuture, long countDownInterval) {
+			super(millisInFuture, countDownInterval);// 参数依次为总时长,和计时的时间间隔
+		}
+
+		@Override
+		public void onFinish() {// 计时完毕时触发
+			bt_send.setText("获取验证码");
+			bt_send.setBackgroundResource(R.drawable.login_send_backgroud);
+			bt_send.setClickable(true);
+		}
+
+		@Override
+		public void onTick(long millisUntilFinished) {// 计时过程显示
+			bt_send.setClickable(false);
+			bt_send.setBackgroundResource(R.drawable.register_sendbackgroud);
+			bt_send.setText(millisUntilFinished / 1000 + "秒");
+		}
 	}
 }

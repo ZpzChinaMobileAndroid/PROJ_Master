@@ -34,6 +34,7 @@ import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class LoginActivity  extends BaseActivity implements OnClickListener{
 
@@ -48,7 +49,7 @@ public class LoginActivity  extends BaseActivity implements OnClickListener{
 	@ViewInject(id=R.id.bt_register)
 	private EditText bt_register;
 	@ViewInject(id=R.id.tv_foundpassword)
-	private EditText tv_foundpassword;
+	private TextView tv_foundpassword;
 	
 	
 	
@@ -66,6 +67,7 @@ public class LoginActivity  extends BaseActivity implements OnClickListener{
 		
 		et_username.setText("18766142992");
 		et_userpassword.setText("111");
+		tv_foundpassword.setOnClickListener(this);
 	}
 
 
@@ -93,12 +95,16 @@ public class LoginActivity  extends BaseActivity implements OnClickListener{
 		//注册	
 		Intent intent=new Intent(LoginActivity.this,RegisterActivity.class);
 		startActivity(intent);
+		
 		}else if(arg0.getId()==R.id.tv_foundpassword){
 		//找回密码
 		Intent intent=new Intent(LoginActivity.this,FoundPasswordActivity.class);
 		startActivity(intent);	
+		
 		}else if(arg0.getId()==R.id.login_anonymity){
 		//匿名登陆
+			
+			
 			
 		}
 	}
@@ -129,8 +135,8 @@ public class LoginActivity  extends BaseActivity implements OnClickListener{
 				showShortToast("登陆成功");
 				
 				
-				Intent intent= new Intent(LoginActivity.this,UserClauseActivity.class);
-				startActivity(intent);
+		//		Intent intent= new Intent(LoginActivity.this,UserClauseActivity.class);
+		//		startActivity(intent);
 				}else{
 					showNetShortToast(httpCode);
 				}

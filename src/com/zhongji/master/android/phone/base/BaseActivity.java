@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.View;
 import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.slidingmenu.lib.SlidingMenu;
@@ -60,6 +61,11 @@ public abstract class BaseActivity extends FinalActivity{
 		.setIcon(android.R.drawable.ic_dialog_alert)
 		.setMessage(message)
 		.setPositiveButton("确定", listener).setNegativeButton("取消", null).show();
+	}
+
+	public void onClick(View arg0) {
+		// TODO 自动生成的方法存根
+		
 	}
 	
 //	protected void initMenu() {
