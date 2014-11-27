@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="@dimen/padding_all" >
+    
+    <LinearLayout 
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="left"
+        android:layout_weight="2"
+        >
+        	
+       <ImageView 
+         android:id="@+id/iv_company_logo"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:src="@drawable/company_icon"
+           
+           /> 
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="6"
+        android:paddingLeft="@dimen/padding_tb15"
+        >
+    
+    
+    <LinearLayout 
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:gravity="top" 
+        android:paddingLeft="@dimen/padding_tb15"
+        >
+        
+        <TextView 
+            android:id="@+id/te_company_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="textview"
+            android:textColor="@color/blue_bg"
+            android:textSize="@dimen/activity_18_size"
+            />
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+         android:paddingLeft="@dimen/padding_tb15"
+        
+        >
+        
+        <TextView 
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="公司行业："   
+         android:textColor="@color/gray_txt_hint"
+         android:textSize="@dimen/activity_16_size"
+            
+            />
+        <TextView 
+         android:id="@+id/tv_company_industry"   
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="textview"   
+         android:textColor="@color/gray_txt_hint"
+         android:textSize="@dimen/activity_16_size"
+            
+            />
+        
+    </LinearLayout>
+    
+     <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/padding_tb15"
+        >
+        
+        <TextView 
+         android:id="@+id/tv_company_focusnumber"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="textview"   
+         android:textColor="@color/gray_txt_hint"
+         android:textSize="@dimen/activity_16_size"
+            
+            />
+        <TextView 
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="位关注者"   
+         android:textColor="@color/gray_txt_hint"
+         android:textSize="@dimen/activity_16_size"
+            
+            />
+        
+    </LinearLayout>
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="@dimen/padding_tb20"
+        android:layout_weight="1"
+        >
+        
+        <ImageView 
+         android:id="@+id/iv_particulars"   
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:src="@drawable/company_content"
+         android:layout_gravity="center_horizontal"   
+         android:paddingLeft="@dimen/padding_tb20"  
+        />
+        
+    </LinearLayout>
+
+</LinearLayout>

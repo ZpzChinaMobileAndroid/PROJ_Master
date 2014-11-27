@@ -23,5 +23,7 @@ public class HttpAPI {
 	/** 注册 */
 	public static final String USERS_REGISTER= "account/register2";
 	
+	/** 所有公司*/
+	public static final String COMPANY_ALLNAME= "CompanyBaseInformation/GetCompanyBaseInformation";
 	
 }

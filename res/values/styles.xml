@@ -42,12 +42,20 @@
         <item name="android:gravity">center</item>
     </style>
     
-    <!-- 线 -->
+    <!-- 横线 -->
     <style name="view_line">
         <item name="android:background">@color/gray_txt_hint</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
     </style>
+    
+     <!-- 竖线 -->
+    <style name="view_line_shu">
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_width">3dp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    
     
     <style name="view_line2">
         <item name="android:background">@color/black</item>

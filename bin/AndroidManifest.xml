@@ -19,7 +19,7 @@
 
         <!-- 登陆 -->
         <activity
-            android:name="com.zhongji.master.android.phone.login.LoginActivity"
+            android:name="com.zhongji.master.android.phone.activity.login.LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,19 +30,19 @@
 
         <!-- 注册 -->
         <activity
-            android:name="com.zhongji.master.android.phone.login.RegisterActivity"
+            android:name="com.zhongji.master.android.phone.activity.login.RegisterActivity"
             android:label="@string/app_name" >
         </activity>
 
         <!-- 找回密码 -->
         <activity
-            android:name="com.zhongji.master.android.phone.login.FoundPasswordActivity"
+            android:name="com.zhongji.master.android.phone.activity.login.FoundPasswordActivity"
             android:label="@string/app_name" >
         </activity>
 
         <!-- 用户条款 -->
         <activity
-            android:name="com.zhongji.master.android.phone.login.UserClauseActivity"
+            android:name="com.zhongji.master.android.phone.activity.login.UserClauseActivity"
             android:label="@string/app_name" >
         </activity>
 
@@ -76,7 +76,14 @@
         
         <!-- 确认找回 -->
         <activity
-            android:name="com.zhongji.master.android.phone.login.AffirmActivity"
+            android:name="com.zhongji.master.android.phone.activity.login.AffirmActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+         <!-- 公司详情 -->
+        <activity
+            android:name="com.zhongji.master.android.phone.activity.company.CompanyParticularsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" >
         </activity>

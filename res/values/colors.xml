@@ -18,5 +18,7 @@
     <color name="blue_bg">#5567a6</color>
 	<color name="gray_txt_hint">#a8a8a8</color>
 	
+	<color  name="red_txt_company">#E26C6C</color>
+	<color  name="blue_txt_company">#729FE3</color>
 	
 </resources>
