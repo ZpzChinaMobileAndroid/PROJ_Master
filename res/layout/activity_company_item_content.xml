@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:padding="@dimen/padding_all" >
+    android:padding="@dimen/padding_all10" >
     
     <LinearLayout 
         android:layout_width="0dp"
@@ -40,7 +40,7 @@
         >
         
         <TextView 
-            android:id="@+id/te_company_name"
+            android:id="@+id/tv_company_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="textview"

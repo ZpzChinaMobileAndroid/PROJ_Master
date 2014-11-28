@@ -25,16 +25,11 @@ import android.util.Log;
 
 
 /**
- * @package com.ananda.tailing.bike.util
- * @description: 
- * @version 1.0
- * @author JackieCheng
- * @email xiaming5368@163.com
- * @date 2014-1-21 下午5:23:17
+ *数据库
  */
 public class PreferencesUtils {
 	
-	public static final String PREFERENCE_NAME = "collection";
+	public static final String PREFERENCE_NAME = "master";
 	public static final String PREFERENCE_NAME_PRO = "projectlists";
 	public static final String PREFERENCE_KEY_PRO = "pro";
 	public static final String PREFERENCE_KEY_SEARCH = "searchlists";

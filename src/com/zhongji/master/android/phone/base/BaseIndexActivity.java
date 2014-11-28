@@ -158,6 +158,16 @@ public abstract class BaseIndexActivity extends BaseActivity implements OnClickL
 		tv_title.setText(title);
 	}
 	
+	/**
+	 * 设置右侧显示
+	 * 
+	 */
+	public void setRight(String title) {
+		TextView tv_title = (TextView) findViewById(R.id.tv_right);
+		tv_title.setText(title);
+	}
+	
+	
 	
 	public void setRightBtn(View.OnClickListener listener) {
 		tv_right = (TextView) findViewById(R.id.tv_right);

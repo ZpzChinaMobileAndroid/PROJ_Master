@@ -25,6 +25,8 @@ public class Company implements Serializable {
 	private  String companyFocusNumber;//公司关注数量
 	private  String companyLogo;//公司logo
 	private  String reviewStatus;//回复状态
+	private String projectStage = "1";
+	private String projectVersion;//版本号
 	private  String	focused;//
 	public String getCompanyid() {
 		return companyid;
@@ -123,6 +125,18 @@ public class Company implements Serializable {
 		this.focused = focused;
 	}
 
+	public String getProjectStage() {
+		return projectStage;
+	}
+	public void setProjectStage(String projectStage) {
+		this.projectStage = projectStage;
+	}
+	public String getProjectVersion() {
+		return projectVersion;
+	}
+	public void setProjectVersion(String projectVersion) {
+		this.projectVersion = projectVersion;
+	}
 	@Override
 	public String toString() {
 		return "Project [companyid=" + companyid + ", companyname=" + companyname
@@ -135,7 +149,7 @@ public class Company implements Serializable {
 				+ ", companyType=" + companyType
 				+ ", companyEmployeeNumber=" + companyEmployeeNumber + ", companyFocusNumber="
 				+ companyFocusNumber + ", companyLogo=" + companyLogo
-				+ ", reviewStatus=" + reviewStatus + ", focused=" + focused+"]";
+				+ ", reviewStatus=" + reviewStatus + ", focused=" + focused+", projectVersion=" + projectVersion+"]";
 	}
 	
 	

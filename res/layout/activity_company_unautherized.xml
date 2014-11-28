@@ -4,60 +4,54 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <RelativeLayout 
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:layout_gravity="center"
-     android:gravity="center"
-     android:layout_marginTop="10dp"
-     android:layout_marginLeft="15dp"
-     android:layout_marginRight="15dp"
-     android:background="@drawable/login_background"
-     android:orientation="vertical">
-        
-     <Button 
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:id="@+id/btn_company_seach"
-      android:text="搜索"
-      android:textColor="@color/gray_txt_hint"
-      android:drawableLeft="@drawable/company_search"
-      android:background="@color/white"  
-      android:drawablePadding="@dimen/padding_tb10"
-      android:visibility="visible"   
-      android:onClick="onClick"
-       />
-    
-     <EditText 
-        style="@style/et_login_style" 
-        android:id="@+id/et_company_seach_name"
-        android:hint="请输入搜索的公司"
-        android:drawableLeft="@drawable/company_search"
-        android:drawablePadding="@dimen/padding_tb5"
-        android:paddingLeft="@dimen/padding_tb10" 
-        android:visibility="gone"
-         />
-        
-    </RelativeLayout>
-   
-    <LinearLayout 
-        
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:paddingTop="@dimen/padding_tb20"
-       android:orientation="vertical" >
-        
-       <com.zhongji.master.android.phone.activity.company.RTPullListView
-        android:paddingBottom="@dimen/padding_tb15"
-        android:dividerHeight="10dp"
-        android:listSelector="@android:color/transparent"
-        android:id="@+id/lv_company_list"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-    </com.zhongji.master.android.phone.activity.company.RTPullListView>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/login_background"
+        android:gravity="center"
+        android:orientation="vertical" >
 
-        
-        
+        <Button
+            android:id="@+id/btn_company_seach"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:drawableLeft="@drawable/company_search"
+            android:drawablePadding="@dimen/padding_tb10"
+            android:onClick="onClick"
+            android:text="搜索"
+            android:textColor="@color/gray_txt_hint"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/et_company_seach_name"
+            style="@style/et_login_style"
+            android:drawableLeft="@drawable/company_search"
+            android:drawablePadding="@dimen/padding_tb5"
+            android:hint="请输入搜索的公司"
+            android:paddingLeft="@dimen/padding_tb10"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/padding_tb20"
+        android:orientation="vertical" >
+
+        <com.zhongji.master.android.phone.activity.company.RTPullListView
+            android:id="@+id/lv_company_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:dividerHeight="10dp"
+            android:listSelector="@android:color/transparent"
+            android:paddingBottom="@dimen/padding_tb15" >
+        </com.zhongji.master.android.phone.activity.company.RTPullListView>
     </LinearLayout>
 
 </LinearLayout>

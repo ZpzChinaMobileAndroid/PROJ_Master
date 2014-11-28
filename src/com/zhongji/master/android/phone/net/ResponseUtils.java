@@ -99,8 +99,8 @@ public abstract class ResponseUtils extends AsyncHttpResponseHandler {
 				ToastUtils.getStance(context).showShortToast("密码错误");
 			}else if("1312".equals(bean.getStatus().getStatusCode())){
 				ToastUtils.getStance(context).showShortToast("token过期");
-				HttpRestClient.TOKEN = "";
-				PreferencesUse.saveToken(context, HttpRestClient.TOKEN);
+				HttpRestClient.DeviceTOKEN = "";
+				PreferencesUse.saveToken(context, HttpRestClient.DeviceTOKEN);
 				toLogin();
 			}else{
 				ToastUtils.getStance(context).showShortToast(bean.getStatus().getErrors());

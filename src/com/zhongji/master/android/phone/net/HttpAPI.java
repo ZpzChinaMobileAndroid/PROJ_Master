@@ -1,12 +1,7 @@
 package com.zhongji.master.android.phone.net;
 
 /**
- * @package com.suntime.microsearch.net
- * @description:
- * @version v1.0
- * @author JackieCheng
- * @email xiaming5368@163.com
- * @date 2014-7-23 下午4:21:46
+ *接口详情
  */
 public class HttpAPI {
 
@@ -24,6 +19,26 @@ public class HttpAPI {
 	public static final String USERS_REGISTER= "account/register2";
 	
 	/** 所有公司*/
-	public static final String COMPANY_ALLNAME= "CompanyBaseInformation/GetCompanyBaseInformation";
+	public static final String COMPANY_ALL= "CompanyBaseInformation/GetCompanyBaseInformation";
+	
+	/**添加公司*/
+	public static final String COMPANY_ADD= "CompanyBaseInformation/AddCompanyBaseInformation";
+	
+	/** 搜索公司*/
+	public static final String COMPANY_SEACH= "CompanyBaseInformation/SearchCompany?KeyWords={KeyWords}&PageIndex={PageIndex}&PageSize={PageSize}";
+	
+	/** 获取我的公司*/
+	public static final String COMPANY_MYSELF= "CompanyBaseInformation/GetMyCompany?PageIndex={PageIndex}&PageSize={PageSize}";
+	
+	/** 获取公司员工*/
+	public static final String COMPANY_GETSTAFF= "CompanyBaseInformation/GetCompanyEmployees?PageSize={PageSize}&PageIndex={PageIndex}";
+
+	/** 添加关注*/
+	public static final String COMPANY_ATTENTION= "networking/addUserFocus";
+	
+	/** 取消关注*/
+	public static final String COMPANY_CANCELATTENTION= "networking/DeleteFocus";
+	
+	
 	
 }

@@ -136,4 +136,14 @@ public abstract class BaseSecondActivity extends BaseActivity implements OnClick
 		TextView tv_title = (TextView) findViewById(R.id.tv_title);
 		tv_title.setText(title);
 	}
+	
+	/**
+	 * 设置右侧显示
+	 * 
+	 */
+	public void setRight(String title) {
+		TextView tv_title = (TextView) findViewById(R.id.tv_right);
+		tv_title.setText(title);
+	}
+	
 }

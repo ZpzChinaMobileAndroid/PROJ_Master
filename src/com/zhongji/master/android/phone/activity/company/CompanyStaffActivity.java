@@ -7,6 +7,11 @@ import android.view.View.OnClickListener;
 import com.zhongji.master.android.phone.R;
 import com.zhongji.master.android.phone.base.BaseSecondActivity;
 
+/**
+ * 员工详情
+ * @author Admin
+ *
+ */
 public class CompanyStaffActivity extends BaseSecondActivity implements
 		OnClickListener {
 

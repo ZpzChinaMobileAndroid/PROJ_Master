@@ -4,11 +4,13 @@ package com.zhongji.master.android.phone.activity.login;
  * 登陆
  */
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import net.tsz.afinal.annotation.view.ViewInject;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -17,6 +19,7 @@ import com.alibaba.fastjson.JSON;
 import com.zhongji.master.android.phone.R;
 import com.zhongji.master.android.phone.activity.contacts.ContactsActivity;
 import com.zhongji.master.android.phone.base.BaseSecondActivity;
+import com.zhongji.master.android.phone.entity.User;
 import com.zhongji.master.android.phone.entity.UserListBean;
 import com.zhongji.master.android.phone.net.HttpAPI;
 import com.zhongji.master.android.phone.net.HttpRestClient;
@@ -37,6 +40,14 @@ public class LoginActivity extends BaseSecondActivity implements
 		// TODO 自动生成的方法存根
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+
+		// 获取屏幕分辨率
+		DisplayMetrics dm = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(dm);
+		int width = dm.widthPixels;// 宽度
+		int h = dm.heightPixels;
+		init();// 初始化(继承父类的时候)
+
 	}
 
 	protected void init() {
@@ -100,7 +111,7 @@ public class LoginActivity extends BaseSecondActivity implements
 		Map<String, String> content = new LinkedHashMap<String, String>();
 		content.put("userName", username);
 		content.put("password", MD5.md5(userpassword).substring(8, 24));
-		content.put("deviceType", "android");
+		content.put("deviceType", "mobile");
 		HttpRestClient.post(LoginActivity.this, HttpAPI.USERS_LOGIN, JsonUtils
 				.change(content, false), new ResponseUtils(LoginActivity.this) {
 
@@ -115,9 +126,14 @@ public class LoginActivity extends BaseSecondActivity implements
 						return;
 					}
 					showShortToast("登陆成功");
+					List<User> lists = bean.getData();
+					if (lists != null && lists.size() > 0) {
+						User user = lists.get(0);
+						HttpRestClient.DeviceTOKEN = user.getDeviceToken();
+					}
 
-					Intent intent = new Intent(LoginActivity.this,
-							ContactsActivity.class);
+					Intent intent = new Intent(LoginActivity.this,ContactsActivity.class);
+			//		intent.putExtra("usertype","");
 					startActivity(intent);
 				} else {
 					showNetShortToast(httpCode);

@@ -19,7 +19,7 @@ public class JsonUtils {
 	 */
 	public static StringEntity change(Map<String, String> requestParams, boolean bool){
 		if(bool){
-			requestParams.put("token", HttpRestClient.TOKEN);
+			requestParams.put("devicetoken", HttpRestClient.DeviceTOKEN);
 		}
 		StringEntity res = null;
 		try {
@@ -49,7 +49,7 @@ public class JsonUtils {
 	public static StringEntity uploadproject(Map<String, String> requestParams){
 		Map<String, String> maps = new LinkedHashMap<String, String>();
 		maps.put("data", "value");
-		maps.put("token", HttpRestClient.TOKEN);
+		maps.put("token", HttpRestClient.DeviceTOKEN);
 		String jsonstr = JSON.toJSONString(maps).replace("\"value\"", JSON.toJSONString(requestParams));
 		System.out.println(jsonstr);
 		StringEntity res = null;
@@ -71,7 +71,7 @@ public class JsonUtils {
 	public static StringEntity uploadproject(String requestParams){
 		Map<String, String> maps = new LinkedHashMap<String, String>();
 		maps.put("data", "value");
-		maps.put("token", HttpRestClient.TOKEN);
+		maps.put("token", HttpRestClient.DeviceTOKEN);
 		String jsonstr = JSON.toJSONString(maps).replace("\"value\"", requestParams);
 		System.out.println(jsonstr);
 		StringEntity res = null;

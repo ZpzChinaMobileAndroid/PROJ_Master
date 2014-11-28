@@ -12,23 +12,23 @@ import java.io.Serializable;
 public class User implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private String userId;
-	private String userName;
-	private String realName;
-	private String userToken;
-	private String deviceToken;
-	private String isFaceRegister;
-	private String faceCount;
-	private String loginStatus;
-	private String userType;
-	private String sessionStartTime;
-	private String loginTimes;
-	private String lastLoginTime;
-	private String failedTimes;
-	private String forbidEndTime;
-	private String forbidStartTime;
-	private String hasCompany;
-	private String imageLocation;
+	private String userId;//用户id
+	private String userName;//用户昵称
+	private String realName;//真实姓名
+	private String userToken;//用户token
+	private String deviceToken;//设备token	
+	private String isFaceRegister;//是否脸部注册
+	private String faceCount;//脸部注册次数
+	private String loginStatus;//登录状态
+	private String userType;//用户类型
+	private String sessionStartTime;//session开始时间
+	private String loginTimes;//登录时间
+	private String lastLoginTime;//最后一次登录时间
+	private String failedTimes;//失败次数
+	private String forbidEndTime;//禁止登出时间
+	private String forbidStartTime;//禁止登录时间
+	private String hasCompany;//是否有公司
+	private String imageLocation;//图片路径
 	
 	
 	public String getUserId() {

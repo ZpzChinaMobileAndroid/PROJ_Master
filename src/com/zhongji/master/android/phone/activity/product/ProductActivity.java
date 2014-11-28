@@ -8,7 +8,6 @@ import com.zhongji.master.android.phone.base.BaseIndexActivity;
 
 /**
  * 产品
- * @author admin
  *
  */
 public class ProductActivity extends BaseIndexActivity{

@@ -14,10 +14,10 @@ import com.loopj.android.http.RequestParams;
  */
 public class HttpRestClient {
 
-	private static final String BASE_URL ="http://www.shenjigroup.com:2192/" ;
+	private static final String BASE_URL = "http://www.shenjigroup.com:2192/";
 	private static final String PRO_URL = "api/";
 	private static final int TIME_OUT = 10 * 1000;// 10s 超时
-	public static String TOKEN = "";
+	public static String DeviceTOKEN = "";
 	private static AsyncHttpClient httpClient = new AsyncHttpClient();
 
 	static {
@@ -45,19 +45,22 @@ public class HttpRestClient {
 		httpClient.get(getAbsoluteUrl(url), requestParams, responseUtils);
 	}
 
-	public static void get(Context context, String url, String token, RequestParams requestParams, ResponseUtils responseUtils) {
+	public static void get(Context context, String url, String token,
+			RequestParams requestParams, ResponseUtils responseUtils) {
 
-		System.out.println("url:"+getAbsoluteUrl(url) + token);
-		System.out.println("requestParams:"+requestParams.toString());
-		httpClient.get(context, getAbsoluteUrl(url) + token, requestParams, responseUtils);
+		System.out.println("url:" + getAbsoluteUrl(url) + token);
+		System.out.println("requestParams:" + requestParams.toString());
+		httpClient.get(context, getAbsoluteUrl(url) + token, requestParams,
+				responseUtils);
 	}
-	
-	public static void get(Context context, String url, ResponseUtils responseUtils) {
 
-		System.out.println("url:"+getAbsoluteUrl("") + url);
+	public static void get(Context context, String url,
+			ResponseUtils responseUtils) {
+
+		System.out.println("url:" + getAbsoluteUrl("") + url);
 		httpClient.get(context, getAbsoluteUrl("") + url, responseUtils);
 	}
-	
+
 	/**
 	 * post请求
 	 * 
@@ -80,30 +83,36 @@ public class HttpRestClient {
 		httpClient.post(getAbsoluteUrl(url), requestParams, responseUtils);
 	}
 
-	public static void post(Context context, String url, StringEntity requestParams, ResponseUtils responseUtils) {
+	public static void post(Context context, String url,
+			StringEntity requestParams, ResponseUtils responseUtils) {
 
-		
-		System.out.println("url:"+getAbsoluteUrl(url));
-		System.out.println("requestParams:"+requestParams.toString());
-		httpClient.post(context, getAbsoluteUrl(url), requestParams, "application/json; charset=UTF-8",responseUtils);
+		System.out.println("url:" + getAbsoluteUrl(url));
+		System.out.println("requestParams:" + requestParams.toString());
+		httpClient.post(context, getAbsoluteUrl(url), requestParams,
+				"application/json; charset=UTF-8", responseUtils);
 	}
-	
-	public static void put(Context context, String url, StringEntity requestParams, ResponseUtils responseUtils) {
 
-		httpClient.put(context, getAbsoluteUrl(url), requestParams, "application/json; charset=UTF-8", responseUtils);
+	public static void put(Context context, String url,
+			StringEntity requestParams, ResponseUtils responseUtils) {
+
+		httpClient.put(context, getAbsoluteUrl(url), requestParams,
+				"application/json; charset=UTF-8", responseUtils);
 	}
-	
-	public static void upload(String keyword, Context context, String url, StringEntity requestParams, ResponseUtils responseUtils) {
-		if(TextUtils.isEmpty(keyword)){
-			//新增
-			httpClient.post(context, getAbsoluteUrl(url), requestParams, "application/json; charset=UTF-8", responseUtils);
-		}else{
-			//修改
-			httpClient.put(context, getAbsoluteUrl(url), requestParams, "application/json; charset=UTF-8", responseUtils);
+
+	public static void upload(String keyword, Context context, String url,
+			StringEntity requestParams, ResponseUtils responseUtils) {
+		if (TextUtils.isEmpty(keyword)) {
+			// 新增
+			httpClient.post(context, getAbsoluteUrl(url), requestParams,
+					"application/json; charset=UTF-8", responseUtils);
+		} else {
+			// 修改
+			httpClient.put(context, getAbsoluteUrl(url), requestParams,
+					"application/json; charset=UTF-8", responseUtils);
 		}
-		
+
 	}
-	
+
 	@SuppressWarnings("unused")
 	private static String javatophptime(String time) {
 		// TODO Auto-generated method stub

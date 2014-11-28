@@ -42,7 +42,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/te_company_name"
+                    android:id="@+id/tv_company_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="textview"
@@ -90,6 +90,7 @@
             >
 
             <Button
+                android:id="@+id/btn_attention"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@null"
@@ -111,6 +112,7 @@
              >
 
             <Button
+                android:id="@+id/btn_authentication"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@null"
@@ -130,6 +132,7 @@
         android:layout_weight="5">
 
         <TextView
+            android:id="@+id/tv_introduce"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss" />
