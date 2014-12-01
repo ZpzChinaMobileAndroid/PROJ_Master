@@ -2,6 +2,7 @@ package com.zhongji.master.android.phone.base;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -158,26 +159,16 @@ public abstract class BaseIndexActivity extends BaseActivity implements OnClickL
 		tv_title.setText(title);
 	}
 	
-	/**
-	 * 设置右侧显示
-	 * 
-	 */
-	public void setRight(String title) {
-		TextView tv_title = (TextView) findViewById(R.id.tv_right);
-		tv_title.setText(title);
-	}
-	
-	
 	
 	public void setRightBtn(View.OnClickListener listener) {
 		tv_right = (TextView) findViewById(R.id.tv_right);
 		tv_right.setOnClickListener(listener);
 		tv_right.setText("设置");
 		tv_right.setVisibility(View.VISIBLE);
-		tv_right.setTextColor(Color.BLUE);
-//		Drawable drawable = getResources().getDrawable(R.drawable.IC);
-//		drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-//		tv_right.setCompoundDrawables(null, null, drawable, null);
+		tv_right.setTextColor(Color.TRANSPARENT);
+		Drawable drawable = getResources().getDrawable(R.drawable.contacts_send_dynamic);
+		drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+		tv_right.setCompoundDrawables(null, null, drawable, null);
 	}
 	
 }

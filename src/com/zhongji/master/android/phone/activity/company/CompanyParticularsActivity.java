@@ -58,7 +58,7 @@ public class CompanyParticularsActivity extends BaseSecondActivity implements
 	protected void init() {
 		// TODO 自动生成的方法存根
 		setTitle("公司详情");
-		setRight("更多");
+		setRightBtnMore(null);
 
 		Company company = new Company();
 		iv_company_logo.setBackgroundResource(R.drawable.company_icon);

@@ -72,8 +72,17 @@ public abstract class BaseSecondActivity extends BaseActivity implements OnClick
 	public void setRightBtn(OnClickListener listener) {
 		tv_right = (TextView) findViewById(R.id.tv_right);
 		tv_right.setOnClickListener(listener);
-		tv_right.setTextColor(Color.TRANSPARENT);
+		tv_right.setTextColor(Color.WHITE);
 		tv_right.setVisibility(View.VISIBLE);
+		tv_right.setText("清空");
+	}
+	
+	public void setRightBtnMore(OnClickListener listener) {
+		tv_right = (TextView) findViewById(R.id.tv_right);
+		tv_right.setOnClickListener(listener);
+		tv_right.setTextColor(Color.WHITE);
+		tv_right.setVisibility(View.VISIBLE);
+		tv_right.setText("更多");
 	}
 	
 	
@@ -136,14 +145,4 @@ public abstract class BaseSecondActivity extends BaseActivity implements OnClick
 		TextView tv_title = (TextView) findViewById(R.id.tv_title);
 		tv_title.setText(title);
 	}
-	
-	/**
-	 * 设置右侧显示
-	 * 
-	 */
-	public void setRight(String title) {
-		TextView tv_title = (TextView) findViewById(R.id.tv_right);
-		tv_title.setText(title);
-	}
-	
 }

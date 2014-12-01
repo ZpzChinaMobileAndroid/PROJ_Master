@@ -13,15 +13,20 @@
     <dimen name="activity_title_size">16sp</dimen>
     <dimen name="activity_btn_size">18sp</dimen>
     
-    <dimen name="padding_all5">5dp</dimen>
+     <dimen name="padding_all5">5dp</dimen>
     <dimen name="padding_all10">10dp</dimen>
     <dimen name="padding_all15">15dp</dimen>
     <dimen name="padding_all">20dp</dimen>
+     <dimen name="padding_all_10">10dp</dimen>
+     <dimen name="padding_all_5">5dp</dimen>
     <dimen name="padding_tb20">20dp</dimen>
     <dimen name="padding_tb15">15dp</dimen>
     <dimen name="padding_tb10">10dp</dimen>
     <dimen name="padding_tb5">5dp</dimen>
     <dimen name="drawable_padding">10dp</dimen>
+    <dimen name="padding_all_10f">-10dp</dimen>
+    
+    <dimen name="line_width">3dp</dimen>
     
     
     <dimen name="slidingmenu_offset">60dp</dimen>

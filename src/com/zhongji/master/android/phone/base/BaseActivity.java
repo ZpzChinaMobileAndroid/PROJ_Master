@@ -1,25 +1,13 @@
 package com.zhongji.master.android.phone.base;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
 import net.tsz.afinal.FinalActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.TextView;
-import com.alibaba.fastjson.JSON;
+
 import com.slidingmenu.lib.SlidingMenu;
-import com.zhongji.master.android.phone.activity.login.LoginActivity;
-import com.zhongji.master.android.phone.entity.UserListBean;
-import com.zhongji.master.android.phone.net.HttpAPI;
-import com.zhongji.master.android.phone.net.HttpRestClient;
-import com.zhongji.master.android.phone.net.ResponseUtils;
-import com.zhongji.master.android.phone.until.DataCleanManager;
-import com.zhongji.master.android.phone.until.JsonUtils;
-import com.zhongji.master.android.phone.until.PreferencesUtils;
 import com.zhongji.master.android.phone.until.ProgressDialogUtils;
 import com.zhongji.master.android.phone.until.ToastUtils;
 

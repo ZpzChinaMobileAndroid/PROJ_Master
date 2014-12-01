@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhongji.master.android.phone.widget.KeyboardLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:id="@+id/keyboardLayout1"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_all" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <EditText
+                    android:id="@+id/editText1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/empty"
+                    android:layout_marginTop="-5dp"
+                    android:background="@null"
+                    android:gravity="bottom"
+                    android:paddingBottom="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:paddingTop="0dp" >
+                </EditText>
+
+                <ImageView
+                    android:id="@+id/empty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/contacts_publish_photo_hf" />
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/contacts_publish_photo" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/imageView1"
+                    android:layout_toRightOf="@+id/empty"
+                    android:text="您在做什么? (限150字)"
+                    android:textColor="@color/gray_txt_hint" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/contacts_publish_bg"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:button="@null"
+            android:checked="true"
+            android:drawableLeft="@drawable/contacts_publish_say_selector"
+            android:drawablePadding="@dimen/padding_all"
+            android:paddingBottom="@dimen/padding_tb10"
+            android:paddingLeft="@dimen/padding_all"
+            android:paddingTop="@dimen/padding_tb10"
+            android:text="想说些什么..."
+            android:textColor="@color/black" />
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:button="@null"
+            android:drawableLeft="@drawable/contacts_publish_pro_selector"
+            android:drawablePadding="@dimen/padding_all"
+            android:paddingBottom="@dimen/padding_tb10"
+            android:paddingLeft="@dimen/padding_all"
+            android:paddingTop="@dimen/padding_tb10"
+            android:text="产品信息"
+            android:textColor="@color/black" />
+    </RadioGroup>
+
+</com.zhongji.master.android.phone.widget.KeyboardLayout>

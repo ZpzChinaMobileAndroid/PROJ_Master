@@ -21,11 +21,6 @@
         <activity
             android:name="com.zhongji.master.android.phone.activity.login.LoginActivity"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <!-- 注册 -->
@@ -51,6 +46,18 @@
             android:name="com.zhongji.master.android.phone.activity.contacts.ContactsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+         <!-- 人脉-发布 -->
+        <activity
+            android:name="com.zhongji.master.android.phone.activity.contacts.PublishActivity"
+            android:screenOrientation="portrait" >
+            
         </activity>
 
         <!-- 项目 -->

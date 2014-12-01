@@ -58,7 +58,7 @@
     
     
     <style name="view_line2">
-        <item name="android:background">@color/black</item>
+        <item name="android:background">@color/gray_txt_hint</item>
         <item name="android:layout_width">1dp</item>
         <item name="android:layout_height">match_parent</item>
     </style>
