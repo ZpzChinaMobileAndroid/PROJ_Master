@@ -31,6 +31,7 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/padding_tb15"
+        android:onClick="onClick"
         android:text=""
         android:textColor="@color/white" />
 

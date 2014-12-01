@@ -48,7 +48,7 @@ public class CompanyActivity extends BaseIndexActivity {
 		super.onCreate(savedInstanceState);
 		
 //		if(){
-//		setContentView(R.layout.activity_company_unautherized);
+		setContentView(R.layout.activity_company_unautherized);
 //	  }else{
 //		  setContentView(R.layout.activity_company_particulars);
 //	  }
