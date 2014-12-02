@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        style="@style/layout_padding_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:textSize="@dimen/activity_title_size"
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:textColor="@color/gray_txt_hint"
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+    </LinearLayout>
+
+    <include layout="@layout/layout_contactway"/>
+    <include layout="@layout/layout_baseinfo"/>
+    <include layout="@layout/layout_personbackground"/>
+    <include layout="@layout/layout_relationproject"/>
+</LinearLayout>

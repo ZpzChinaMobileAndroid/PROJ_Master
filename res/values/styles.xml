@@ -56,7 +56,6 @@
         <item name="android:layout_height">match_parent</item>
     </style>
     
-    
     <style name="view_line2">
         <item name="android:background">@color/gray_txt_hint</item>
         <item name="android:layout_width">1dp</item>
@@ -71,6 +70,32 @@
         <item name="android:singleLine">true</item>
         <item name="android:textSize">@dimen/activity_title_size</item>
         <item name="android:textColorHint">@color/gray_txt_hint</item>
+    </style>
+    
+    <!-- 布局样式 -->
+    <style name="layout_padding_style">
+        <item name="android:paddingLeft">@dimen/padding_all</item>
+        <item name="android:paddingRight">@dimen/padding_all</item>
+        <item name="android:paddingTop">@dimen/padding_tb10</item>
+        <item name="android:paddingBottom">@dimen/padding_tb10</item>
+    </style>
+    
+    <!-- textview样式 -->
+    <style name="tv_1_style">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    
+    <!-- edittext样式 -->
+    <style name="et_1_style">
+        <item name="android:layout_weight">2.5</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textColor">@color/gray_txt_hint</item>
+        <item name="android:textSize">@dimen/activity_14_size</item>
+        <item name="android:background">@null</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">请填写</item>
     </style>
     
 </resources>

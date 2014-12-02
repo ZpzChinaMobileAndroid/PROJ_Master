@@ -46,18 +46,30 @@
             android:name="com.zhongji.master.android.phone.activity.contacts.ContactsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            
         </activity>
         
          <!-- 人脉-发布 -->
         <activity
             android:name="com.zhongji.master.android.phone.activity.contacts.PublishActivity"
             android:screenOrientation="portrait" >
-            
+        </activity>
+        
+         <!-- 人脉-详情 -->
+        <activity
+            android:name="com.zhongji.master.android.phone.activity.contacts.PersonDetailActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        <!-- 人脉-动态详情 -->
+        <activity
+            android:name="com.zhongji.master.android.phone.activity.contacts.DynamicDetailActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <!-- 项目 -->

@@ -49,7 +49,7 @@ public class ContactsAdapter extends BaseAdapter{
 	public View getView(int position, View convertView, ViewGroup arg2) {
 		// TODO Auto-generated method stub
 		ViewHolder holder;
-		if(convertView == null){ 
+		if(convertView == null){
 			convertView = View.inflate(context, R.layout.items_list_contacts_text_dynamic, null);
 			holder = new ViewHolder();
 			convertView.setTag(holder);

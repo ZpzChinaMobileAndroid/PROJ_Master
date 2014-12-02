@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="ContentDescription" severity="ignore" />
+    <issue id="HardcodedText" severity="ignore" />
+    <issue id="TextFields" severity="ignore" />
+    <issue id="UseCompoundDrawables">
+        <ignore path="res/layout/laouyt_baseinfo.xml" />
+    </issue>
+    <issue id="UselessLeaf" severity="ignore" />
+    <issue id="UselessParent" severity="ignore" />
+</lint>
