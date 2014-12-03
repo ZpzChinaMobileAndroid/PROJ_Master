@@ -97,6 +97,7 @@
                 android:drawableLeft="@drawable/company_particulars_add"
                 android:drawablePadding="@dimen/padding_tb10"
                 android:text="加关注"
+                android:onClick="onClick"
                 android:textColor="@color/red_txt_company" />
         </LinearLayout>
 

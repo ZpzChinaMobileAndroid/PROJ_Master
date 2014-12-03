@@ -25,7 +25,7 @@ public class HttpAPI {
 	public static final String COMPANY_ADD= "CompanyBaseInformation/AddCompanyBaseInformation";
 	
 	/** 搜索公司*/
-	public static final String COMPANY_SEACH= "CompanyBaseInformation/SearchCompany?KeyWords={KeyWords}&PageIndex={PageIndex}&PageSize={PageSize}";
+	public static final String COMPANY_SEACH= "CompanyBaseInformation/GetCompanyBaseInformation?KeyWords=keyWords&pageIndex=0&pageSize=5";
 	
 	/** 获取我的公司*/
 	public static final String COMPANY_MYSELF= "CompanyBaseInformation/GetMyCompany?PageIndex={PageIndex}&PageSize={PageSize}";
@@ -39,6 +39,7 @@ public class HttpAPI {
 	/** 取消关注*/
 	public static final String COMPANY_CANCELATTENTION= "networking/DeleteFocus";
 	
-	
+	/** 获取产品*/
+	public static final String PROJUCT_ALL= "ProductInformation/ProductInformation?pageSize=5&pageIndex=0";
 	
 }

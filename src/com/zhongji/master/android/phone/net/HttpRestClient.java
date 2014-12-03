@@ -18,6 +18,9 @@ public class HttpRestClient {
 	private static final String PRO_URL = "api/";
 	private static final int TIME_OUT = 10 * 1000;// 10s 超时
 	public static String DeviceTOKEN = "";
+	public static String UserID = "";
+	public static String UserType = "";
+	
 	private static AsyncHttpClient httpClient = new AsyncHttpClient();
 
 	static {

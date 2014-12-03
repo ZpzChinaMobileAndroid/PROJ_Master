@@ -9,7 +9,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="left"
+        android:gravity="center"
         android:layout_weight="2"
         >
         	
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_weight="6"
-        android:paddingLeft="@dimen/padding_tb15"
+        android:paddingLeft="@dimen/padding_tb5"
         >
     
     
@@ -111,8 +111,8 @@
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:layout_gravity="center_horizontal"
-        android:paddingTop="@dimen/padding_tb20"
-        android:layout_weight="1"
+        android:paddingTop="@dimen/padding_tb25"
+        android:layout_weight="2"
         >
         
         <ImageView 
@@ -127,3 +127,4 @@
     </LinearLayout>
 
 </LinearLayout>
+

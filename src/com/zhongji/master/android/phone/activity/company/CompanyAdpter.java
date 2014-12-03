@@ -77,7 +77,7 @@ public class CompanyAdpter extends BaseAdapter {
 			int stage = Integer.parseInt(company.getProjectStage());
 			
 			viewholder.iv_company_logo.setImageResource(R.drawable.company_icon);
-			viewholder.tv_company_name.setText(company.getCompanyname());
+			viewholder.tv_company_name.setText(company.getCompanyName());
 			viewholder.tv_company_industry.setText(company.getCompanyIndustry());
 			viewholder.tv_company_focusnumber.setText(company.getCompanyFocusNumber());
 		

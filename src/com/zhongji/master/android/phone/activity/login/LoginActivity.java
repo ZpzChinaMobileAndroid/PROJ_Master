@@ -3,12 +3,14 @@ package com.zhongji.master.android.phone.activity.login;
 /**
  * 登陆
  */
+import java.net.URLDecoder;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import net.tsz.afinal.annotation.view.ViewInject;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -34,6 +36,8 @@ public class LoginActivity extends BaseSecondActivity implements
 	private EditText et_username;
 	@ViewInject(id = R.id.et_userpassword)
 	private EditText et_userpassword;
+	private User user;
+	private String userid, usertype, userdevietoken;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +59,9 @@ public class LoginActivity extends BaseSecondActivity implements
 
 		setTitle("");
 		setLeftBtn_X();
-
-		et_username.setText("12365478901");
-		et_userpassword.setText("111");
+//
+//		et_username.setText("12345678901");
+//		et_userpassword.setText("111");
 	}
 
 	public void onClick(View arg0) {
@@ -107,7 +111,6 @@ public class LoginActivity extends BaseSecondActivity implements
 	 */
 	private void login(String username, String userpassword) {
 		// TODO 自动生成的方法存根
-
 		Map<String, String> content = new LinkedHashMap<String, String>();
 		content.put("userName", username);
 		content.put("password", MD5.md5(userpassword).substring(8, 24));
@@ -128,12 +131,16 @@ public class LoginActivity extends BaseSecondActivity implements
 					showShortToast("登陆成功");
 					List<User> lists = bean.getData();
 					if (lists != null && lists.size() > 0) {
-						User user = lists.get(0);
+						user = lists.get(0);
 						HttpRestClient.DeviceTOKEN = user.getDeviceToken();
+						HttpRestClient.UserID = user.getUserId();
+						HttpRestClient.UserType = user.getUserType();
 					}
 
-					Intent intent = new Intent(LoginActivity.this,ContactsActivity.class);
-			//		intent.putExtra("usertype","");
+					Intent intent = new Intent(LoginActivity.this,
+							ContactsActivity.class);
+					intent.putExtra("userid", userid);
+					intent.putExtra("usertype", usertype);
 					startActivity(intent);
 				} else {
 					showNetShortToast(httpCode);

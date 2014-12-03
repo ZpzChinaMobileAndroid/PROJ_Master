@@ -29,19 +29,36 @@
 
         <EditText
             android:id="@+id/et_company_seach_name"
-            style="@style/et_login_style"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_background"
             android:drawableLeft="@drawable/company_search"
             android:drawablePadding="@dimen/padding_tb5"
             android:hint="请输入搜索的公司"
-            android:paddingLeft="@dimen/padding_tb10"
+            android:paddingLeft="@dimen/padding_tb5"
+            android:singleLine="true"
+            android:textColorHint="@color/gray_txt_hint"
+            android:textSize="@dimen/activity_title_size"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_company_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/et_company_seach_name"
+            android:layout_alignBottom="@+id/et_company_seach_name"
+            android:layout_toRightOf="@+id/et_company_seach_name"
+            android:drawablePadding="@dimen/padding_tb5"
+            android:text="取消"
+            android:textColor="@color/gray_txt_hint"
             android:visibility="gone" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/padding_tb20"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:paddingTop="@dimen/padding_tb20" >
 
         <com.zhongji.master.android.phone.activity.company.RTPullListView
             android:id="@+id/lv_company_list"

@@ -23,7 +23,7 @@ public class JsonUtils {
 		}
 		StringEntity res = null;
 		try {
-			res = new StringEntity(JSON.toJSONString(requestParams));
+			res = new StringEntity(JSON.toJSONString(requestParams), "utf-8");
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

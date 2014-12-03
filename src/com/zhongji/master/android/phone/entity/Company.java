@@ -10,8 +10,8 @@ import java.io.Serializable;
 
 public class Company implements Serializable {
 
-	private  String companyid;//公司id
-	private  String companyname;//公司名字
+	private  String id;//公司id
+	private  String companyName;//公司名字
 	private  String companyAlias;//公司别名
 	private  String companyContactEmail;//公司邮箱
 	private  String companyDescription;//公司描述
@@ -28,17 +28,17 @@ public class Company implements Serializable {
 	private String projectStage = "1";
 	private String projectVersion;//版本号
 	private  String	focused;//
-	public String getCompanyid() {
-		return companyid;
+	public String id() {
+		return id;
 	}
-	public void setCompanyid(String companyid) {
-		this.companyid = companyid;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getCompanyname() {
-		return companyname;
+	public String getCompanyName() {
+		return companyName;
 	}
-	public void setCompanyname(String companyname) {
-		this.companyname = companyname;
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 	public String getCompanyAlias() {
 		return companyAlias;
@@ -139,7 +139,7 @@ public class Company implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Project [companyid=" + companyid + ", companyname=" + companyname
+		return "Project [id=" + id + ", companyName=" + companyName
 				+ ", companyAlias=" + companyAlias + ", companyContactEmail="
 				+ companyContactEmail + ", companyDescription=" + companyDescription + ", companyIndustry="
 				+ companyIndustry + ", companyLocation="

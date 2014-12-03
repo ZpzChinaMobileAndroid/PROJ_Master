@@ -90,7 +90,7 @@ public abstract class ResponseUtils extends AsyncHttpResponseHandler {
 			}else if("1303".equals(bean.getStatus().getStatusCode())){
 				ToastUtils.getStance(context).showShortToast("注册失败");
 			}else if("1320".equals(bean.getStatus().getStatusCode())){
-				ToastUtils.getStance(context).showShortToast("登录用户名不存在");
+				ToastUtils.getStance(context).showShortToast("用户名不存在");
 			}else if("1321".equals(bean.getStatus().getStatusCode())){
 				ToastUtils.getStance(context).showShortToast("黑名单");
 			}else if("1322".equals(bean.getStatus().getStatusCode())){
@@ -100,6 +100,8 @@ public abstract class ResponseUtils extends AsyncHttpResponseHandler {
 			}else if("1312".equals(bean.getStatus().getStatusCode())){
 				ToastUtils.getStance(context).showShortToast("token过期");
 				HttpRestClient.DeviceTOKEN = "";
+				HttpRestClient.UserID="";
+				HttpRestClient.UserType="";
 				PreferencesUse.saveToken(context, HttpRestClient.DeviceTOKEN);
 				toLogin();
 			}else{
