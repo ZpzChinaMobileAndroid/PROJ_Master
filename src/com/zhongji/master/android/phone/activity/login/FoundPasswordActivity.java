@@ -8,10 +8,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 
 import com.zhongji.master.android.phone.R;
-import com.zhongji.master.android.phone.base.BaseActivity;
 import com.zhongji.master.android.phone.base.BaseSecondActivity;
 
 

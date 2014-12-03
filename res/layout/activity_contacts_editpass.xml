@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/padding_tb5"
+        android:paddingLeft="@dimen/padding_tb20"
+        android:paddingRight="@dimen/padding_tb20"
+        android:paddingTop="@dimen/padding_tb5" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/et_password"
+                style="@style/et_login_style"
+                android:ems="10"
+                android:hint="原密码"
+                android:inputType="number" >
+            </EditText>
+        </LinearLayout>
+
+        <View style="@style/view_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/et_newpassword"
+                style="@style/et_login_style"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="新密码" >
+            </EditText>
+        </LinearLayout>
+
+        <View style="@style/view_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/et_repassword"
+                style="@style/et_login_style"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="确认密码" >
+            </EditText>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_all" >
+
+        <Button
+            android:id="@+id/btn_affirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_tb10"
+            android:background="@drawable/login_fond_backgroud"
+            android:onClick="onClick"
+            android:text="确\t\t\t\t认"
+            android:textColor="@color/white"
+            android:textSize="@dimen/activity_btn_size" />
+    </LinearLayout>
+
+</LinearLayout>

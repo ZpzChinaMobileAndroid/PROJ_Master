@@ -85,6 +85,21 @@ public abstract class BaseSecondActivity extends BaseActivity implements OnClick
 		tv_right.setText("更多");
 	}
 	
+	public void setRightSettingBtn(OnClickListener listener) {
+		tv_right = (TextView) findViewById(R.id.tv_right);
+		tv_right.setOnClickListener(listener);
+		tv_right.setText("账号设置");
+		tv_right.setVisibility(View.VISIBLE);
+		tv_right.setTextColor(Color.WHITE);
+	}
+	
+	public void setRightFinishBtn(OnClickListener listener) {
+		tv_right = (TextView) findViewById(R.id.tv_right);
+		tv_right.setOnClickListener(listener);
+		tv_right.setText("完成");
+		tv_right.setVisibility(View.VISIBLE);
+		tv_right.setTextColor(Color.WHITE);
+	}
 	
 //	/**
 //	 * 设置搜索背景

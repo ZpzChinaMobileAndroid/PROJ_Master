@@ -4,7 +4,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import net.tsz.afinal.annotation.view.ViewInject;
-import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,7 +11,6 @@ import android.text.Html;
 import android.text.Html.ImageGetter;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +35,6 @@ public class PublishActivity extends BaseSecondActivity {
 	private boolean isEmpty = true;
 	private String constart = "";
 	private KeyboardLayout mainView;
-	private InputMethodManager manager; // 隐藏软键盘
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +52,6 @@ public class PublishActivity extends BaseSecondActivity {
 		setLeftBtn();
 		setRightBtn(null);
 
-		manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 		mainView = (KeyboardLayout) findViewById(R.id.keyboardLayout1);
 		keyboardlistener();
 		

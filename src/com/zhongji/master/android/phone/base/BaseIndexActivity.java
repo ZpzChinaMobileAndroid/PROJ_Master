@@ -171,4 +171,5 @@ public abstract class BaseIndexActivity extends BaseActivity implements OnClickL
 		tv_right.setCompoundDrawables(null, null, drawable, null);
 	}
 	
+	
 }

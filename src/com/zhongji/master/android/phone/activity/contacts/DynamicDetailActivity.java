@@ -35,7 +35,7 @@ public class DynamicDetailActivity extends BaseSecondActivity {
 		setTitle("动态详情");
 		setLeftBtn();
 
-//		listView1.addHeaderView(View.inflate(this, R.layout.items_list_contacts_text_dynamic, null));
+//		listView1.addHeaderView(View.inflate(this, R.layout.layout_contacts_text_dynamic, null));
 		listView1.addHeaderView(View.inflate(this, R.layout.layout_contacts_picture_dynamic, null));
 		
 		adapter = new CommentAdapter(DynamicDetailActivity.this);

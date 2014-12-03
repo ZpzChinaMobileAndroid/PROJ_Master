@@ -11,7 +11,7 @@ import com.zhongji.master.android.phone.adapter.ContactsAdapter;
 import com.zhongji.master.android.phone.base.BaseIndexActivity;
 
 /**
- * 人脉
+ * 人脉首页
  * @author admin
  *
  */

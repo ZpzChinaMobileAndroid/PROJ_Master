@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 
         android:dividerHeight="1dp"
-        android:divider="@color/gray_txt_hint">
+        android:divider="@color/gray_line2">
     </ListView>
 
 </LinearLayout>
