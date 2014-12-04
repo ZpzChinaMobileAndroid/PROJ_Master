@@ -1,10 +1,12 @@
 package com.zhongji.master.android.phone.activity.contacts;
 
+import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import net.tsz.afinal.annotation.view.ViewInject;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
@@ -15,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.serializer.URICodec;
 import com.zhongji.master.android.phone.R;
 import com.zhongji.master.android.phone.base.BaseSecondActivity;
 import com.zhongji.master.android.phone.widget.KeyboardLayout;
@@ -54,7 +57,6 @@ public class PublishActivity extends BaseSecondActivity {
 
 		mainView = (KeyboardLayout) findViewById(R.id.keyboardLayout1);
 		keyboardlistener();
-		
 		editText1.addTextChangedListener(mTextWatcher);
 		addImg("");
 		constart = editText1.getText().toString();

@@ -71,7 +71,7 @@
         <include layout="@layout/layout_companyinfo" />
 
         <View
-            style="@style/view_line"
+            style="@style/view_line" 
             android:background="@color/gray_line" />
 
         <LinearLayout
