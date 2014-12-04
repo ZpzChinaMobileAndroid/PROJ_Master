@@ -72,11 +72,8 @@ public class CompanyActivity extends BaseIndexActivity implements
 		System.out.println("sss" + usertype);
 		userid = HttpRestClient.UserID;
 
-		if (usertype.equals("Company")) {
-			setContentView(R.layout.activity_company_particulars);
-		} else {
-			setContentView(R.layout.activity_company_unautherized);
-		}
+		setContentView(R.layout.activity_company_unautherized);
+
 	}
 
 	@Override
@@ -277,4 +274,5 @@ public class CompanyActivity extends BaseIndexActivity implements
 	// });
 	//
 	// }
+
 }

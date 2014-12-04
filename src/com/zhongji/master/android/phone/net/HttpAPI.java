@@ -21,17 +21,17 @@ public class HttpAPI {
 	/** 所有公司*/
 	public static final String COMPANY_ALL= "CompanyBaseInformation/GetCompanyBaseInformation";
 	
-	/**添加公司*/
-	public static final String COMPANY_ADD= "CompanyBaseInformation/AddCompanyBaseInformation";
+	/** 单个公司*/
+	public static final String COMPANY_only= "CompanyBaseInformation/GetCompanyBaseInformation?CompanyBaseInformationId={CompanyBaseInformationId}";
 	
 	/** 搜索公司*/
 	public static final String COMPANY_SEACH= "CompanyBaseInformation/GetCompanyBaseInformation?KeyWords=keyWords&pageIndex=0&pageSize=5";
 	
 	/** 获取我的公司*/
-	public static final String COMPANY_MYSELF= "CompanyBaseInformation/GetMyCompany?PageIndex={PageIndex}&PageSize={PageSize}";
+	public static final String COMPANY_MYSELF= "CompanyBaseInformation/GetMyCompany?PageIndex=0&PageSize=10";
 	
 	/** 获取公司员工*/
-	public static final String COMPANY_GETSTAFF= "CompanyBaseInformation/GetCompanyEmployees?PageSize={PageSize}&PageIndex={PageIndex}";
+	public static final String COMPANY_GETSTAFF= "CompanyBaseInformation/GetCompanyEmployees?PageSize=0&PageIndex=10";
 
 	/** 添加关注*/
 	public static final String COMPANY_ATTENTION= "networking/addUserFocus";
@@ -41,5 +41,8 @@ public class HttpAPI {
 	
 	/** 获取产品*/
 	public static final String PROJUCT_ALL= "ProductInformation/ProductInformation?pageSize=5&pageIndex=0";
+	
+	/** 添加公司申请认证*/
+	public static final String COMPANY_APPLY= "CompanyBaseInformation/AddCompanyEmployees";
 	
 }

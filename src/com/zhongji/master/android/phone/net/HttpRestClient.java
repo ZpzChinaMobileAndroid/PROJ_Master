@@ -1,5 +1,6 @@
 package com.zhongji.master.android.phone.net;
 
+import org.apache.http.Header;
 import org.apache.http.entity.StringEntity;
 
 import android.content.Context;
@@ -20,6 +21,7 @@ public class HttpRestClient {
 	public static String DeviceTOKEN = "";
 	public static String UserID = "";
 	public static String UserType = "";
+	public static String hasCompany = "";
 	
 	private static AsyncHttpClient httpClient = new AsyncHttpClient();
 
@@ -61,6 +63,9 @@ public class HttpRestClient {
 			ResponseUtils responseUtils) {
 
 		System.out.println("url:" + getAbsoluteUrl("") + url);
+		if(!"".equals(UserID) && !"".equals(DeviceTOKEN)){
+			httpClient.addHeader("Authorization", UserID+":"+DeviceTOKEN);
+		}
 		httpClient.get(context, getAbsoluteUrl("") + url, responseUtils);
 	}
 
@@ -82,7 +87,9 @@ public class HttpRestClient {
 		responseUtils.setUrl(url);
 		responseUtils.setRequestParams(requestParams);
 		responseUtils.setToken(isToken);
-
+		if(!"".equals(UserID) && !"".equals(DeviceTOKEN)){
+			httpClient.addHeader("Authorization", UserID+":"+DeviceTOKEN);
+		}
 		httpClient.post(getAbsoluteUrl(url), requestParams, responseUtils);
 	}
 
@@ -91,8 +98,10 @@ public class HttpRestClient {
 
 		System.out.println("url:" + getAbsoluteUrl(url));
 		System.out.println("requestParams:" + requestParams.toString());
-		httpClient.post(context, getAbsoluteUrl(url), requestParams,
-				"application/json; charset=UTF-8", responseUtils);
+		if(!"".equals(UserID) && !"".equals(DeviceTOKEN)){
+			httpClient.addHeader("Authorization", UserID+":"+DeviceTOKEN);
+		}
+		httpClient.post(context, getAbsoluteUrl(url), requestParams, "application/json; charset=UTF-8", responseUtils);
 	}
 
 	public static void put(Context context, String url,

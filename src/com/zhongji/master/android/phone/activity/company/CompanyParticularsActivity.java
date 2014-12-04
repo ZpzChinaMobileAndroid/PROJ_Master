@@ -27,7 +27,6 @@ import com.zhongji.master.android.phone.entity.CompanyListBean;
 import com.zhongji.master.android.phone.net.HttpAPI;
 import com.zhongji.master.android.phone.net.HttpRestClient;
 import com.zhongji.master.android.phone.net.ResponseUtils;
-import com.zhongji.master.android.phone.util.JsonUtils;
 
 /**
  * 公司详情
@@ -56,8 +55,11 @@ public class CompanyParticularsActivity extends BaseSecondActivity implements
 	private int number = 0;
 	private String userid, usertype;
 	private Company content;
-	private String companyid, companyName, comoanyLogo, companyIndustry,
+	private String companymessage;
+	private int a, b, c, d, e, f, g, h, i, j, k, l;
+	private String id, companyName, comoanyLogo, companyIndustry,
 			companyDescription, companyType, deviceToken;
+	private String companyidString, IndustryString;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -70,32 +72,40 @@ public class CompanyParticularsActivity extends BaseSecondActivity implements
 		content = (Company) getIntent().getSerializableExtra("content");
 		System.out.println("选择公司数据：" + content);
 
-		String companymessage = content.toString();
-		companyid = "id";
+		companymessage = content.toString();
+		id = "id";
 		companyName = "companyName";
 		comoanyLogo = "comoanyLogo";
 		companyIndustry = "companyIndustry";
 		companyType = "companyType";
 		companyDescription = "companyDescription";
-		
-		int a = companymessage.indexOf(companyid);// 公司id
-		int b = companymessage.indexOf(",", a);
-		int c = companymessage.indexOf(companyName);// 公司名字
-		int d = companymessage.indexOf(",", c);
-		int e = companymessage.indexOf(comoanyLogo);// 公司logo
-		int f = companymessage.indexOf(",", e);
-		int g = companymessage.indexOf(companyIndustry);// 公司行业
-		int h = companymessage.indexOf(",", g);
-		int i = companymessage.indexOf(companyType);// 公司类型
-		int j = companymessage.indexOf(",", i);
-		int k = companymessage.indexOf(companyDescription);// 公司描述
-		int l = companymessage.indexOf(",", k);
 
+		a = companymessage.indexOf(id);// 公司id
+		b = companymessage.indexOf(",", a);
+		c = companymessage.indexOf(companyName);// 公司名字
+		d = companymessage.indexOf(",", c);
+		e = companymessage.indexOf(comoanyLogo);// 公司logo
+		f = companymessage.indexOf(",", e);
+		g = companymessage.indexOf(companyIndustry);// 公司行业
+		h = companymessage.indexOf(",", g);
+		i = companymessage.indexOf(companyType);// 公司类型
+		j = companymessage.indexOf(",", i);
+		k = companymessage.indexOf(companyDescription);// 公司描述
+		l = companymessage.indexOf(",", k);
+
+		companyidString = companymessage.substring(a + id.length() + 1, b);
 		iv_company_logo.setBackgroundResource(R.drawable.company_icon);
 		tv_company_name.setText(companymessage.substring(
 				c + companyName.length() + 1, d));
-		tv_company_industry.setText(companymessage.substring(g
-				+ companyIndustry.length() + 1, h));
+
+		IndustryString = companymessage.substring(g + companyIndustry.length()
+				+ 1, h);
+		if (IndustryString.equals("null")) {
+			tv_company_industry.setText("");
+		} else {
+			tv_company_industry.setText(IndustryString);
+		}
+
 		tv_introduce.setText(companymessage.substring(
 				k + companyDescription.length() + 1, l));
 	}
@@ -104,6 +114,7 @@ public class CompanyParticularsActivity extends BaseSecondActivity implements
 	protected void init() {
 		// TODO 自动生成的方法存根
 		setTitle("公司详情");
+		setLeftBtn();
 		deviceToken = HttpRestClient.DeviceTOKEN;
 	}
 
@@ -121,12 +132,19 @@ public class CompanyParticularsActivity extends BaseSecondActivity implements
 				Intent intent = new Intent(CompanyParticularsActivity.this,
 						LoginActivity.class);
 				startActivity(intent);
-			} else {
-				// 加关注
-				attention();
 			}
-			// // 取消关注
-			// cancelattention();
+			if (number / 1 == 0) {
+				// 加关注
+				btn_attention.setText("取消关注");
+				attention();
+				number++;
+			} else if (number / 1 == 1) {
+
+				// 取消关注
+				btn_attention.setText("加关注");
+				cancelattention();
+				number++;
+			}
 
 		} else if (v.getId() == R.id.btn_authentication) {
 			// 申请认证
@@ -143,23 +161,21 @@ public class CompanyParticularsActivity extends BaseSecondActivity implements
 		// TODO 自动生成的方法存根
 		RequestParams params = new RequestParams();
 		params.put("userId", userid);
-		params.put("focusId", companyid);
+		params.put("focusId", id);
 		params.put("UserType", usertype);
 		params.put("FocusType", "Company");
 
-		HttpRestClient.get(CompanyParticularsActivity.this,
-				HttpAPI.COMPANY_ATTENTION, HttpRestClient.DeviceTOKEN, params,
+		HttpRestClient.post(HttpAPI.COMPANY_ATTENTION, params,
 				new ResponseUtils(CompanyParticularsActivity.this) {
 
 					@Override
 					public void getResult(int httpCode, String result) {
 						// TODO Auto-generated method stub
 						if (httpCode == HttpAPI.HTTP_SUCCESS_CODE) {
-							CompanyListBean beans = JSON.parseObject(
-									JsonUtils.parseString(result),
-									CompanyListBean.class);
+							//
 
-							btn_attention.setText("已关注");
+						} else {
+							showShortToast(result);
 						}
 					}
 				});
@@ -174,21 +190,16 @@ public class CompanyParticularsActivity extends BaseSecondActivity implements
 		// TODO 自动生成的方法存根
 		RequestParams params = new RequestParams();
 		params.put("userId", userid);
-		params.put("focusId", companyid);
+		params.put("focusId", id);
 
-		HttpRestClient.get(CompanyParticularsActivity.this,
-				HttpAPI.COMPANY_CANCELATTENTION, HttpRestClient.DeviceTOKEN,
-				params, new ResponseUtils(CompanyParticularsActivity.this) {
+		HttpRestClient.post(HttpAPI.COMPANY_CANCELATTENTION, params,
+				new ResponseUtils(CompanyParticularsActivity.this) {
 
 					@Override
 					public void getResult(int httpCode, String result) {
 						// TODO Auto-generated method stub
 						if (httpCode == HttpAPI.HTTP_SUCCESS_CODE) {
-							CompanyListBean beans = JSON.parseObject(
-									JsonUtils.parseString(result),
-									CompanyListBean.class);
 
-							btn_attention.setText("加关注");
 						}
 					}
 				});
@@ -202,26 +213,23 @@ public class CompanyParticularsActivity extends BaseSecondActivity implements
 		// TODO 自动生成的方法存根
 
 		RequestParams params = new RequestParams();
-		params.put("", "");
-		params.put("", "");
-		params.put("", "");
-		params.put("", "");
+		params.put("CompanyId", companyidString);
+		params.put("EmployeeId", HttpRestClient.UserID);
+		params.put("CreatedBy", HttpRestClient.UserID);
 
-		HttpRestClient.get(CompanyParticularsActivity.this,
-				HttpAPI.COMPANY_ATTENTION, HttpRestClient.DeviceTOKEN, params,
-				new ResponseUtils(CompanyParticularsActivity.this) {
+		HttpRestClient.post(HttpAPI.COMPANY_APPLY, params, new ResponseUtils(
+				CompanyParticularsActivity.this) {
 
-					@Override
-					public void getResult(int httpCode, String result) {
-						// TODO Auto-generated method stub
-						if (httpCode == HttpAPI.HTTP_SUCCESS_CODE) {
-							CompanyListBean beans = JSON.parseObject(
-									JsonUtils.parseString(result),
-									CompanyListBean.class);
+			@Override
+			public void getResult(int httpCode, String result) {
+				// TODO Auto-generated method stub
+				if (httpCode == HttpAPI.HTTP_SUCCESS_CODE) {
 
-						}
+				} else {
+					showShortToast(result);
+				}
 
-					}
-				});
+			}
+		});
 	}
 }

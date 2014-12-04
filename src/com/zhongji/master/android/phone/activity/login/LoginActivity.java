@@ -3,14 +3,14 @@ package com.zhongji.master.android.phone.activity.login;
 /**
  * 登陆
  */
-import java.net.URLDecoder;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.http.client.HttpClient;
+
 import net.tsz.afinal.annotation.view.ViewInject;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -37,7 +37,6 @@ public class LoginActivity extends BaseSecondActivity implements
 	@ViewInject(id = R.id.et_userpassword)
 	private EditText et_userpassword;
 	private User user;
-	private String userid, usertype, userdevietoken;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +58,9 @@ public class LoginActivity extends BaseSecondActivity implements
 
 		setTitle("");
 		setLeftBtn_X();
-//
-//		et_username.setText("12345678901");
-//		et_userpassword.setText("111");
+
+		et_username.setText("18718718718");
+		et_userpassword.setText("123");
 	}
 
 	public void onClick(View arg0) {
@@ -135,12 +134,11 @@ public class LoginActivity extends BaseSecondActivity implements
 						HttpRestClient.DeviceTOKEN = user.getDeviceToken();
 						HttpRestClient.UserID = user.getUserId();
 						HttpRestClient.UserType = user.getUserType();
+						HttpRestClient.hasCompany = user.getHasCompany();
 					}
 
 					Intent intent = new Intent(LoginActivity.this,
 							ContactsActivity.class);
-					intent.putExtra("userid", userid);
-					intent.putExtra("usertype", usertype);
 					startActivity(intent);
 				} else {
 					showNetShortToast(httpCode);
