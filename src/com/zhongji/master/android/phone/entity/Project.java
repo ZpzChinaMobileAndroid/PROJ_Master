@@ -13,7 +13,7 @@ import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.zhongji.master.android.phone.until.TimeUtils;
+import com.zhongji.master.android.phone.util.TimeUtils;
 
 public class Project implements Serializable{
 

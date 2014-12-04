@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zhongji.master.android.phone.R;
-import com.zhongji.master.android.phone.until.DensityUtil;
+import com.zhongji.master.android.phone.util.DensityUtil;
 
 public abstract class BaseSecondActivity extends BaseActivity implements OnClickListener{
 	

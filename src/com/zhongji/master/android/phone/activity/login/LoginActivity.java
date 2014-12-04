@@ -26,8 +26,8 @@ import com.zhongji.master.android.phone.entity.UserListBean;
 import com.zhongji.master.android.phone.net.HttpAPI;
 import com.zhongji.master.android.phone.net.HttpRestClient;
 import com.zhongji.master.android.phone.net.ResponseUtils;
-import com.zhongji.master.android.phone.until.JsonUtils;
-import com.zhongji.master.android.phone.until.MD5;
+import com.zhongji.master.android.phone.util.JsonUtils;
+import com.zhongji.master.android.phone.util.MD5;
 
 public class LoginActivity extends BaseSecondActivity implements
 		OnClickListener {

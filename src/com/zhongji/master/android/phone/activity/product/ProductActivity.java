@@ -15,13 +15,14 @@ import android.widget.LinearLayout;
 import com.alibaba.fastjson.JSON;
 import com.loopj.android.http.RequestParams;
 import com.zhongji.master.android.phone.R;
-import com.zhongji.master.android.phone.activity.product.LazyScrollView.OnScrollListener;
 import com.zhongji.master.android.phone.base.BaseIndexActivity;
 import com.zhongji.master.android.phone.entity.CompanyListBean;
 import com.zhongji.master.android.phone.net.HttpAPI;
 import com.zhongji.master.android.phone.net.HttpRestClient;
 import com.zhongji.master.android.phone.net.ResponseUtils;
-import com.zhongji.master.android.phone.until.JsonUtils;
+import com.zhongji.master.android.phone.util.JsonUtils;
+import com.zhongji.master.android.phone.widget.pubu.LazyScrollView;
+import com.zhongji.master.android.phone.widget.pubu.LazyScrollView.OnScrollListener;
 
 /**
  * 产品

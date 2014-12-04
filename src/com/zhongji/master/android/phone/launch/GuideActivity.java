@@ -7,7 +7,7 @@ import android.view.View.OnClickListener;
 
 import com.zhongji.master.android.phone.R;
 import com.zhongji.master.android.phone.base.BaseActivity;
-import com.zhongji.master.android.phone.until.PreferencesUse;
+import com.zhongji.master.android.phone.util.PreferencesUse;
 
 /**
  * 引导

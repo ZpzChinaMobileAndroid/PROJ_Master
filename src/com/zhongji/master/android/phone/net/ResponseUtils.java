@@ -10,8 +10,8 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zhongji.master.android.phone.activity.login.LoginActivity;
 import com.zhongji.master.android.phone.entity.BaseBean;
-import com.zhongji.master.android.phone.until.PreferencesUse;
-import com.zhongji.master.android.phone.until.ToastUtils;
+import com.zhongji.master.android.phone.util.PreferencesUse;
+import com.zhongji.master.android.phone.util.ToastUtils;
 
 public abstract class ResponseUtils extends AsyncHttpResponseHandler {
 

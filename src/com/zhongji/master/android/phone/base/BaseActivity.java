@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.slidingmenu.lib.SlidingMenu;
-import com.zhongji.master.android.phone.until.ProgressDialogUtils;
-import com.zhongji.master.android.phone.until.ToastUtils;
+import com.zhongji.master.android.phone.util.ProgressDialogUtils;
+import com.zhongji.master.android.phone.util.ToastUtils;
 
 public abstract class BaseActivity extends FinalActivity{
 	

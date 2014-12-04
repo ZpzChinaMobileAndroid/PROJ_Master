@@ -23,14 +23,16 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.loopj.android.http.RequestParams;
 import com.zhongji.master.android.phone.R;
+import com.zhongji.master.android.phone.adapter.CompanyAdpter;
 import com.zhongji.master.android.phone.base.BaseIndexActivity;
 import com.zhongji.master.android.phone.entity.Company;
 import com.zhongji.master.android.phone.entity.CompanyListBean;
 import com.zhongji.master.android.phone.net.HttpAPI;
 import com.zhongji.master.android.phone.net.HttpRestClient;
 import com.zhongji.master.android.phone.net.ResponseUtils;
-import com.zhongji.master.android.phone.until.JsonUtils;
+import com.zhongji.master.android.phone.util.JsonUtils;
 import com.zhongji.master.android.phone.widget.KeyboardLayout;
+import com.zhongji.master.android.phone.widget.RTPullListView;
 
 /**
  * 公司
@@ -70,12 +72,10 @@ public class CompanyActivity extends BaseIndexActivity implements
 		System.out.println("sss" + usertype);
 		userid = HttpRestClient.UserID;
 
-		if (usertype.equals("Personal")) {
-			setContentView(R.layout.activity_company_unautherized);
-
-		}
 		if (usertype.equals("Company")) {
 			setContentView(R.layout.activity_company_particulars);
+		} else {
+			setContentView(R.layout.activity_company_unautherized);
 		}
 	}
 

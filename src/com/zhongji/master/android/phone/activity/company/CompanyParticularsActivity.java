@@ -27,7 +27,7 @@ import com.zhongji.master.android.phone.entity.CompanyListBean;
 import com.zhongji.master.android.phone.net.HttpAPI;
 import com.zhongji.master.android.phone.net.HttpRestClient;
 import com.zhongji.master.android.phone.net.ResponseUtils;
-import com.zhongji.master.android.phone.until.JsonUtils;
+import com.zhongji.master.android.phone.util.JsonUtils;
 
 /**
  * 公司详情

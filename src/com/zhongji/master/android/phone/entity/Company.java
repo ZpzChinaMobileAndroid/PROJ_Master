@@ -10,6 +10,10 @@ import java.io.Serializable;
 
 public class Company implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private  String id;//公司id
 	private  String companyName;//公司名字
 	private  String companyAlias;//公司别名
