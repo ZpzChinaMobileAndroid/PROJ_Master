@@ -12,7 +12,6 @@ import org.apache.http.client.HttpClient;
 import net.tsz.afinal.annotation.view.ViewInject;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -44,11 +43,6 @@ public class LoginActivity extends BaseSecondActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 
-		// 获取屏幕分辨率
-		DisplayMetrics dm = new DisplayMetrics();
-		getWindowManager().getDefaultDisplay().getMetrics(dm);
-		int width = dm.widthPixels;// 宽度
-		int h = dm.heightPixels;
 		init();// 初始化(继承父类的时候)
 
 	}
@@ -93,15 +87,9 @@ public class LoginActivity extends BaseSecondActivity implements
 			Intent intent = new Intent(LoginActivity.this,
 					FoundPasswordActivity.class);
 			startActivity(intent);
-		} else if (arg0.getId() == R.id.tv_forget) {
-			// 找回密码
-			Intent intent = new Intent(LoginActivity.this,
-					FoundPasswordActivity.class);
-			startActivity(intent);
-
-		}
+		} 
 	}
-
+	
 	/**
 	 * 登陆
 	 * 

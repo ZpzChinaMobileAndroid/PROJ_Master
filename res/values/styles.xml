@@ -31,6 +31,25 @@
         <item name="android:taskToBackEnterAnimation">@null</item>
         <item name="android:taskToBackExitAnimation">@null</item>
     </style>
+    
+    <!-- 登录页面跳转动画 -->
+    <style name="LoginStyle" parent="AppTheme">
+        <item name="android:windowAnimationStyle">@style/LoginAnimation</item>
+    </style>
+    <style name="LoginAnimation">
+        <item name="android:activityOpenEnterAnimation">@anim/login_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/login_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/login_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/login_out</item>
+        <item name="android:taskOpenEnterAnimation">@anim/login_in</item>
+        <item name="android:taskOpenExitAnimation">@anim/login_out</item>
+        <item name="android:taskCloseEnterAnimation">@anim/login_in</item>
+        <item name="android:taskCloseExitAnimation">@anim/login_out</item>
+        <item name="android:taskToFrontEnterAnimation">@anim/login_in</item>
+        <item name="android:taskToFrontExitAnimation">@anim/login_out</item>
+        <item name="android:taskToBackEnterAnimation">@anim/login_in</item>
+        <item name="android:taskToBackExitAnimation">@anim/login_out</item>
+    </style>
             
     <!-- 底部导航 -->
     <style name="base_bottom_btn_style">

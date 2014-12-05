@@ -42,6 +42,9 @@ public class HttpAPI {
 	/** 获取产品*/
 	public static final String PROJUCT_ALL= "ProductInformation/ProductInformation?pageSize=5&pageIndex=0";
 	
+	/** 发布动态*/
+	public static final String PUBLISH_DYNAMIC= "ActiveCenter/SendActives";
+	
 	/** 添加公司申请认证*/
 	public static final String COMPANY_APPLY= "CompanyBaseInformation/AddCompanyEmployees";
 	

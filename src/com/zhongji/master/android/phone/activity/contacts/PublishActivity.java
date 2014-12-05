@@ -1,12 +1,14 @@
 package com.zhongji.master.android.phone.activity.contacts;
 
-import java.net.URL;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import net.tsz.afinal.annotation.view.ViewInject;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
@@ -14,12 +16,20 @@ import android.text.Html.ImageGetter;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.alibaba.fastjson.serializer.URICodec;
+import com.alibaba.fastjson.JSON;
 import com.zhongji.master.android.phone.R;
 import com.zhongji.master.android.phone.base.BaseSecondActivity;
+import com.zhongji.master.android.phone.entity.UserListBean;
+import com.zhongji.master.android.phone.net.HttpAPI;
+import com.zhongji.master.android.phone.net.HttpRestClient;
+import com.zhongji.master.android.phone.net.ResponseUtils;
+import com.zhongji.master.android.phone.util.BitmapUtil;
+import com.zhongji.master.android.phone.util.JsonUtils;
+import com.zhongji.master.android.phone.util.PhotoUtils;
 import com.zhongji.master.android.phone.widget.KeyboardLayout;
 import com.zhongji.master.android.phone.widget.KeyboardLayout.onKybdsChangeListener;
 
@@ -30,14 +40,19 @@ import com.zhongji.master.android.phone.widget.KeyboardLayout.onKybdsChangeListe
  */
 public class PublishActivity extends BaseSecondActivity {
 
-	@ViewInject(id = R.id.editText1)
-	private EditText editText1;
-	@ViewInject(id = R.id.textView1)
-	private TextView textView1;
+	@ViewInject(id = R.id.et_content)
+	private EditText et_content;
+	@ViewInject(id = R.id.tv_hint)
+	private TextView tv_hint;
+	@ViewInject(id = R.id.iv_photo)
+	private ImageView iv_photo;
 	@SuppressWarnings("unused")
 	private boolean isEmpty = true;
 	private String constart = "";
 	private KeyboardLayout mainView;
+	private Bitmap bit;
+	private boolean isRes = false;
+	private PhotoUtils photoUtil = new PhotoUtils(this);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +68,91 @@ public class PublishActivity extends BaseSecondActivity {
 
 		setTitle("发布动态");
 		setLeftBtn();
-		setRightBtn(null);
+		setRightBtn(this);
 
 		mainView = (KeyboardLayout) findViewById(R.id.keyboardLayout1);
 		keyboardlistener();
-		editText1.addTextChangedListener(mTextWatcher);
+		et_content.addTextChangedListener(mTextWatcher);
 		addImg("");
-		constart = editText1.getText().toString();
+		constart = et_content.getText().toString();
+	}
+	
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		super.onClick(v);
+		if(v.getId() == R.id.iv_photo){
+			//拍照/相册
+			isRes = true;
+			photoUtil.getDialog2();
+		}else if(v.getId() == R.id.tv_right){
+			//清空
+			et_content.setText("");
+			iv_photo.setImageResource(R.drawable.contacts_publish_photo);
+			if(bit!=null){
+				bit.recycle();
+				bit = null;
+			}
+		}
+	}
+	
+	/**
+	 * 发布动态
+	 * @param username
+	 * @param userpassword
+	 * 	1. EntityID:用户或者项目ID
+	 *  2. ActiveText:动态文字
+	 *  3. ActivePicture:动态图片名字，包含后缀
+	 *  4. PictureStrings:图片内容，base64 无头
+	 *  5. Type:类型，Personal or Project
+	 */
+	private void send(String text) {
+		// TODO 自动生成的方法存根
+		Map<String, String> content = new LinkedHashMap<String, String>();
+		content.put("EntityID", HttpRestClient.UserID);
+		content.put("ActiveText", text);
+//		content.put("ActivePicture", "");
+		if(bit!=null){
+			content.put("PictureStrings", BitmapUtil.bitmapToBase64(bit));
+		}
+//		content.put("CreatedBy", "");
+		content.put("Category", HttpRestClient.UserType);
+		HttpRestClient.post(PublishActivity.this, HttpAPI.USERS_LOGIN, JsonUtils
+				.change(content, false), new ResponseUtils(PublishActivity.this) {
+
+			@Override
+			public void getResult(int httpCode, String result) {
+				// TODO 自动生成的方法存根
+				dismissProgressDialog();
+				if (httpCode == HttpAPI.HTTP_SUCCESS_CODE) {
+					UserListBean bean = JSON.parseObject(
+							JsonUtils.parseString(result), UserListBean.class);
+					if (getData(bean)) {
+						return;
+					}
+					showShortToast("成功");
+				} else {
+					showNetShortToast(httpCode);
+				}
+			}
+		});
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode,
+			Intent intent) {
+		if (resultCode == 0) {
+			return;
+		}
+		
+		// 上传图片
+		bit = photoUtil
+				.onActivityResult(requestCode, resultCode, intent);
+		if(bit!=null){
+			// 保存图片
+			BitmapUtil.saveBitmap(PublishActivity.this, "photo.jpg", bit);
+			iv_photo.setImageBitmap(bit);
+		}
 	}
 
 	private ImageGetter imageGetter = new ImageGetter() {
@@ -96,17 +189,17 @@ public class PublishActivity extends BaseSecondActivity {
 
 		@Override
 		public void afterTextChanged(Editable s) {
-			editStart = editText1.getSelectionStart();
-			editEnd = editText1.getSelectionEnd();
+			editStart = et_content.getSelectionStart();
+			editEnd = et_content.getSelectionEnd();
 			
 			if(!s.toString().contains(constart)){
 				addImg(s.toString());
 			}
 			
 			if(s.toString().length()>1){
-				textView1.setVisibility(View.GONE);
+				tv_hint.setVisibility(View.GONE);
 			}else{
-				textView1.setVisibility(View.VISIBLE);
+				tv_hint.setVisibility(View.VISIBLE);
 			}
 			int count = getCount(s);
 			System.out.println(count);
@@ -119,11 +212,11 @@ public class PublishActivity extends BaseSecondActivity {
 			System.out.println(s.toString().length());
 			
 			if(index >1 || (index==1 && s.toString().length()>1)){
-				editText1.setText(s.delete(index, index+1));
+				et_content.setText(s.delete(index, index+1));
 				if(index >1){
-					editText1.setSelection(s.toString().length());
+					et_content.setSelection(s.toString().length());
 				}else{
-					editText1.setSelection(s.toString().length()+(editEnd-editStart)+1);
+					et_content.setSelection(s.toString().length()+(editEnd-editStart)+1);
 				}
 			}else{
 				// if(isEmpty ){//|| select == 1
@@ -135,8 +228,8 @@ public class PublishActivity extends BaseSecondActivity {
 							Toast.LENGTH_SHORT).show();
 					s.delete(editStart - 1, editEnd);
 //					int tempSelection = editStart;
-					editText1.setText(s);
-					editText1.setSelection(s.toString().length());
+					et_content.setText(s);
+					et_content.setSelection(s.toString().length());
 				}
 
 			}
@@ -160,9 +253,9 @@ public class PublishActivity extends BaseSecondActivity {
 	 */
 	private void addImg(String content) {
 		isEmpty = false;
-		editText1.setText(Html.fromHtml("<img src='" + R.drawable.contacts_publish_photo_hf + "' /><font>"+content.replace("\n", "<br>")+"</font>", imageGetter, null));
-//		editText1.setHint(Html.fromHtml("<img src='" + R.drawable.contacts_publish_photo + "'/>&nbsp;<font color='#a8a8a8'>您在做什么? (限150字)</font>", imageGetter, null));
-		editText1.setSelection(1);
+		et_content.setText(Html.fromHtml("<img src='" + R.drawable.contacts_publish_photo_hf + "' /><font>"+content.replace("\n", "<br>")+"</font>", imageGetter, null));
+//		et_content.setHint(Html.fromHtml("<img src='" + R.drawable.contacts_publish_photo + "'/>&nbsp;<font color='#a8a8a8'>您在做什么? (限150字)</font>", imageGetter, null));
+		et_content.setSelection(1);
 	}
 	
 	/**
@@ -174,7 +267,12 @@ public class PublishActivity extends BaseSecondActivity {
 		if (bool) {
 			
 		} else {
-			finish();
+			if(isRes){
+				isRes = false;
+				//弹键盘
+			}else{
+				finish();
+			}
 		}
 	}
 
