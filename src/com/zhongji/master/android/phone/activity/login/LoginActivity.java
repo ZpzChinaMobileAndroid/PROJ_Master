@@ -52,6 +52,7 @@ public class LoginActivity extends BaseSecondActivity implements
 		
 		setResult(10);
 		et_username.setText("ftz");
+//		et_username.setText("12345678901");
 		et_userpassword.setText("111");
 	}
 

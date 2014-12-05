@@ -61,7 +61,7 @@
         android:paddingTop="@dimen/padding_tb10" >
 
         <com.zhongji.master.android.phone.widget.RTPullListView
-            android:id="@+id/lv_company_list"
+            android:id="@+id/lv_company_staff_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"

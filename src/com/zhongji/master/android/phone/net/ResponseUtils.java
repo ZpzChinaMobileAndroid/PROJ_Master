@@ -102,7 +102,11 @@ public abstract class ResponseUtils extends AsyncHttpResponseHandler {
 				HttpRestClient.DeviceTOKEN = "";
 				HttpRestClient.UserID="";
 				HttpRestClient.UserType="";
+				HttpRestClient.hasCompany="";
 				PreferencesUse.saveToken(context, HttpRestClient.DeviceTOKEN);
+				PreferencesUse.saveToken(context, HttpRestClient.UserID);
+				PreferencesUse.saveToken(context, HttpRestClient.UserType);
+				PreferencesUse.saveToken(context, HttpRestClient.hasCompany);
 				toLogin();
 			}else{
 				ToastUtils.getStance(context).showShortToast(bean.getStatus().getErrors());

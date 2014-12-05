@@ -63,7 +63,6 @@ public abstract class BaseIndexActivity extends BaseActivity implements
 
 				});
 	}
-
 	private void startActivity(int checkedId) {
 		// TODO Auto-generated method stub
 		if (state == INITIAL_STATE) {
