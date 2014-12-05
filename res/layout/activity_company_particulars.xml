@@ -6,48 +6,39 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:padding="@dimen/padding_all10" 
+        android:layout_height="wrap_content"
         android:background="@color/white"
-        android:layout_weight="2">
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/padding_all25"
+        android:paddingLeft="@dimen/padding_all"
+        android:paddingRight="@dimen/padding_all"
+        android:paddingTop="@dimen/padding_all25" >
+
+        <ImageView
+            android:id="@+id/iv_company_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/company_icon" />
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
+            android:layout_marginLeft="@dimen/padding_all"
             android:orientation="vertical" >
 
-            <ImageView
-                android:id="@+id/iv_company_logo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/company_icon" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:orientation="vertical"
-            android:paddingTop="@dimen/padding_tb5" >
-
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="top"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical" >
 
                 <TextView
                     android:id="@+id/tv_company_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="textview"
-                    android:textColor="@color/blue_bg"
-                    android:textSize="@dimen/activity_18_size" />
+                    android:textColor="@color/blue_txt"
+                    android:textSize="@dimen/activity_20_size" />
             </LinearLayout>
 
             <LinearLayout
@@ -60,34 +51,38 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="公司行业："
-                    android:textColor="@color/gray_txt_hint"
-                    android:textSize="@dimen/activity_16_size" />
+                    android:textColor="@color/gray_txt_hint" />
 
                 <TextView
                     android:id="@+id/tv_company_industry"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="textview"
-                    android:textColor="@color/gray_txt_hint"
-                    android:textSize="@dimen/activity_16_size" />
+                    android:text=""
+                    android:textColor="@color/gray_txt_hint" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <View style="@style/view_line" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="horizontal"
+        android:layout_weight="1"
         android:gravity="center"
-        android:layout_weight="1">
+        android:orientation="horizontal" >
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical" >
 
             <Button
                 android:id="@+id/btn_attention"
@@ -96,21 +91,20 @@
                 android:background="@null"
                 android:drawableLeft="@drawable/company_particulars_add"
                 android:drawablePadding="@dimen/padding_tb10"
-                android:text="加关注"
                 android:onClick="onClick"
-                android:textColor="@color/red_txt_company" />
+                android:text="加关注"
+                android:textColor="@color/red_txt_company"
+                android:textSize="@dimen/activity_16_size" />
         </LinearLayout>
 
-        <View style="@style/view_line_shu"  />
-        
-        
+        <View style="@style/view_line_shu" />
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical"
-             >
+            android:orientation="vertical" >
 
             <Button
                 android:id="@+id/btn_authentication"
@@ -119,24 +113,27 @@
                 android:background="@null"
                 android:drawableLeft="@drawable/company_particulars_apply"
                 android:drawablePadding="@dimen/padding_tb10"
+                android:onClick="onClick"
                 android:text="申请认证"
-                android:textColor="@color/blue_txt_company" />
+                android:textColor="@color/blue_txt_company"
+                android:textSize="@dimen/activity_16_size" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
-        android:padding="@dimen/padding_all10" 
+        android:layout_weight="8"
         android:background="@color/white"
-        android:layout_weight="5">
+        android:orientation="vertical"
+        android:padding="@dimen/padding_all" >
 
         <TextView
             android:id="@+id/tv_introduce"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss" />
-        </LinearLayout>
+            android:text="sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
+            android:textColor="@color/gray_txt_hint" />
+    </LinearLayout>
 
 </LinearLayout>

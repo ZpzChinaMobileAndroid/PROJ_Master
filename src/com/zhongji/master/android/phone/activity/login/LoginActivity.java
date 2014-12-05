@@ -7,6 +7,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.http.client.HttpClient;
+
 import net.tsz.afinal.annotation.view.ViewInject;
 import android.content.Intent;
 import android.os.Bundle;
@@ -50,9 +52,9 @@ public class LoginActivity extends BaseSecondActivity implements
 
 		setTitle("");
 		setLeftBtn_X();
-//
-//		et_username.setText("12345678901");
-//		et_userpassword.setText("111");
+
+		et_username.setText("18718718718");
+		et_userpassword.setText("123");
 	}
 
 	public void onClick(View arg0) {
@@ -120,6 +122,7 @@ public class LoginActivity extends BaseSecondActivity implements
 						HttpRestClient.DeviceTOKEN = user.getDeviceToken();
 						HttpRestClient.UserID = user.getUserId();
 						HttpRestClient.UserType = user.getUserType();
+						HttpRestClient.hasCompany = user.getHasCompany();
 					}
 
 					Intent intent = new Intent(LoginActivity.this,
