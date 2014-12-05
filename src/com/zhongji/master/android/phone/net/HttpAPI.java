@@ -45,7 +45,14 @@ public class HttpAPI {
 	/** 发布动态*/
 	public static final String PUBLISH_DYNAMIC= "ActiveCenter/SendActives";
 	
+	/** 发布产品*/
+	public static final String PUBLISH_PRODUCT= "ProductInformation/AddProductInformation";
+	
+	/** 动态列表*/
+	public static final String DYNAMIC_LIST= "ActiveCenter/Actives";
+	
 	/** 添加公司申请认证*/
 	public static final String COMPANY_APPLY= "CompanyBaseInformation/AddCompanyEmployees";
+	
 	
 }

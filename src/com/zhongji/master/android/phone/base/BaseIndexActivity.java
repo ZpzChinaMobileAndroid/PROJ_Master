@@ -16,7 +16,6 @@ import android.widget.TextView;
 import com.zhongji.master.android.phone.R;
 import com.zhongji.master.android.phone.activity.company.CompanyActivity;
 import com.zhongji.master.android.phone.activity.company.CompanyMySelf;
-import com.zhongji.master.android.phone.activity.company.CompanyParticularsActivity;
 import com.zhongji.master.android.phone.activity.contacts.ContactsActivity;
 import com.zhongji.master.android.phone.activity.product.ProductActivity;
 import com.zhongji.master.android.phone.activity.project.ProjectActivity;

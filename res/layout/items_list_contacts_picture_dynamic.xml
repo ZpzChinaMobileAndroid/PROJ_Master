@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content" >
 
                 <ImageView
-                    android:id="@+id/imageView1"
+                    android:id="@+id/iv_pic"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:scaleType="centerCrop"
@@ -99,28 +99,29 @@
                 
                 <ImageView
                     android:layout_margin="@dimen/padding_all_5"
-                        android:id="@+id/imageView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/iv_head"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/ic_person" />
                 
                 <ImageView
                     android:layout_margin="@dimen/padding_all_5"
-                        android:id="@+id/imageView3"
+                        android:id="@+id/iv_comment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/imageView1"
+                        android:layout_alignBottom="@+id/iv_pic"
                         android:layout_alignParentRight="true"
                         android:src="@drawable/contacts_comment" />
 
                 <TextView
-                    android:padding="@dimen/padding_all_10"
-                    android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/imageView1"
+                    android:layout_below="@+id/iv_pic"
                     android:background="@color/white"
+                    android:padding="@dimen/padding_all_10"
                     android:text="TextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextView" />
+
             </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>

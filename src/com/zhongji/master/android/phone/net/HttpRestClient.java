@@ -1,6 +1,5 @@
 package com.zhongji.master.android.phone.net;
 
-import org.apache.http.Header;
 import org.apache.http.entity.StringEntity;
 
 import android.content.Context;
@@ -15,7 +14,7 @@ import com.loopj.android.http.RequestParams;
  */
 public class HttpRestClient {
 
-	private static final String BASE_URL = "http://www.shenjigroup.com:2192/";
+	public static final String BASE_URL = "http://www.shenjigroup.com:2192/";
 	private static final String PRO_URL = "api/";
 	private static final int TIME_OUT = 10 * 1000;// 10s 超时
 	public static String DeviceTOKEN = "";
@@ -43,10 +42,16 @@ public class HttpRestClient {
 
 	public static void get(String url, RequestParams requestParams,
 			final ResponseUtils responseUtils, boolean isToken) {
-		responseUtils.setUrl(url);
-		responseUtils.setRequestParams(requestParams);
-		responseUtils.setToken(isToken);
-
+//		responseUtils.setUrl(url);
+//		responseUtils.setRequestParams(requestParams);
+//		responseUtils.setToken(isToken);
+		System.out.println("url:" + getAbsoluteUrl(url));
+		System.out.println("requestParams:" + requestParams.toString());
+		System.out.println("UserID:"+UserID);
+		System.out.println("DeviceTOKEN:"+DeviceTOKEN);
+		if(!"".equals(UserID) && !"".equals(DeviceTOKEN)){
+			httpClient.addHeader("Authorization", UserID+":"+DeviceTOKEN);
+		}
 		httpClient.get(getAbsoluteUrl(url), requestParams, responseUtils);
 	}
 
@@ -55,6 +60,9 @@ public class HttpRestClient {
 
 		System.out.println("url:" + getAbsoluteUrl(url) + token);
 		System.out.println("requestParams:" + requestParams.toString());
+		if(!"".equals(UserID) && !"".equals(DeviceTOKEN)){
+			httpClient.addHeader("Authorization", UserID+":"+DeviceTOKEN);
+		}
 		httpClient.get(context, getAbsoluteUrl(url) + token, requestParams,
 				responseUtils);
 	}

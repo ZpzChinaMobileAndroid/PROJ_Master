@@ -15,6 +15,8 @@ public abstract class BaseActivity extends FinalActivity{
 	
 	protected SlidingMenu menu;
 	protected TextView tv_name;
+	protected int page=0;
+	protected int size=10;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

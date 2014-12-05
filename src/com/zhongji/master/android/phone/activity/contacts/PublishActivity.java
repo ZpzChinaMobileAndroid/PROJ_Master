@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import net.tsz.afinal.annotation.view.ViewInject;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
@@ -14,20 +15,24 @@ import android.text.Editable;
 import android.text.Html;
 import android.text.Html.ImageGetter;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.zhongji.master.android.phone.R;
 import com.zhongji.master.android.phone.base.BaseSecondActivity;
-import com.zhongji.master.android.phone.entity.UserListBean;
+import com.zhongji.master.android.phone.entity.BaseBean;
 import com.zhongji.master.android.phone.net.HttpAPI;
 import com.zhongji.master.android.phone.net.HttpRestClient;
 import com.zhongji.master.android.phone.net.ResponseUtils;
 import com.zhongji.master.android.phone.util.BitmapUtil;
+import com.zhongji.master.android.phone.util.DensityUtil;
 import com.zhongji.master.android.phone.util.JsonUtils;
 import com.zhongji.master.android.phone.util.PhotoUtils;
 import com.zhongji.master.android.phone.widget.KeyboardLayout;
@@ -46,12 +51,15 @@ public class PublishActivity extends BaseSecondActivity {
 	private TextView tv_hint;
 	@ViewInject(id = R.id.iv_photo)
 	private ImageView iv_photo;
+	@ViewInject(id = R.id.radioGroup1)
+	private RadioGroup radioGroup1;
 	@SuppressWarnings("unused")
 	private boolean isEmpty = true;
 	private String constart = "";
 	private KeyboardLayout mainView;
 	private Bitmap bit;
 	private boolean isRes = false;
+	private boolean key_enter = false;
 	private PhotoUtils photoUtil = new PhotoUtils(this);
 
 	@Override
@@ -83,7 +91,7 @@ public class PublishActivity extends BaseSecondActivity {
 		super.onClick(v);
 		if(v.getId() == R.id.iv_photo){
 			//拍照/相册
-			isRes = true;
+//			isRes = true;
 			photoUtil.getDialog2();
 		}else if(v.getId() == R.id.tv_right){
 			//清空
@@ -97,6 +105,35 @@ public class PublishActivity extends BaseSecondActivity {
 	}
 	
 	/**
+	 * 监听回车键
+	 * 
+	 * @param event
+	 * @return
+	 */
+	public boolean dispatchKeyEvent(KeyEvent event) {
+		if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER && !key_enter) {
+			String content = et_content.getText().toString().replace(constart, "").trim();
+			if (!content.trim().equals("")) {
+				/* 隐藏软键盘 */
+				isRes = true;
+				key_enter = true;
+				if(radioGroup1.getCheckedRadioButtonId() == R.id.radio0){
+					showProgressDialog();
+					sendDynamic(content);
+				}else{
+					showProgressDialog();
+					sendProduct(content);
+				}
+				
+			} else {
+				showShortToast("说点什么...");
+			}
+			return true;
+		}
+		return super.dispatchKeyEvent(event);
+	}
+	
+	/**
 	 * 发布动态
 	 * @param username
 	 * @param userpassword
@@ -106,7 +143,7 @@ public class PublishActivity extends BaseSecondActivity {
 	 *  4. PictureStrings:图片内容，base64 无头
 	 *  5. Type:类型，Personal or Project
 	 */
-	private void send(String text) {
+	private void sendDynamic(String text) {
 		// TODO 自动生成的方法存根
 		Map<String, String> content = new LinkedHashMap<String, String>();
 		content.put("EntityID", HttpRestClient.UserID);
@@ -117,7 +154,7 @@ public class PublishActivity extends BaseSecondActivity {
 		}
 //		content.put("CreatedBy", "");
 		content.put("Category", HttpRestClient.UserType);
-		HttpRestClient.post(PublishActivity.this, HttpAPI.USERS_LOGIN, JsonUtils
+		HttpRestClient.post(PublishActivity.this, HttpAPI.PUBLISH_DYNAMIC, JsonUtils
 				.change(content, false), new ResponseUtils(PublishActivity.this) {
 
 			@Override
@@ -125,13 +162,58 @@ public class PublishActivity extends BaseSecondActivity {
 				// TODO 自动生成的方法存根
 				dismissProgressDialog();
 				if (httpCode == HttpAPI.HTTP_SUCCESS_CODE) {
-					UserListBean bean = JSON.parseObject(
-							JsonUtils.parseString(result), UserListBean.class);
+					key_enter = false;
+					BaseBean bean = JSON.parseObject(
+							JsonUtils.parseString(result), BaseBean.class);
 					if (getData(bean)) {
+						InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+						imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
 						return;
 					}
-					showShortToast("成功");
+					showShortToast("发布成功");
+					finish();
 				} else {
+					InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+					imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+					showNetShortToast(httpCode);
+				}
+			}
+		});
+	}
+	
+	/**
+	 * 发布产品信息
+	 * @param text
+	 */
+	private void sendProduct(String text) {
+		// TODO 自动生成的方法存根
+		Map<String, String> content = new LinkedHashMap<String, String>();
+		content.put("ProductDescription", text);
+		if(bit!=null){
+			content.put("ProductImageStrings", BitmapUtil.bitmapToBase64(bit));
+		}
+		content.put("CreatedBy", HttpRestClient.UserID);
+		HttpRestClient.post(PublishActivity.this, HttpAPI.PUBLISH_PRODUCT, JsonUtils
+				.change(content, false), new ResponseUtils(PublishActivity.this) {
+
+			@Override
+			public void getResult(int httpCode, String result) {
+				// TODO 自动生成的方法存根
+				dismissProgressDialog();
+				if (httpCode == HttpAPI.HTTP_SUCCESS_CODE) {
+					key_enter = false;
+					BaseBean bean = JSON.parseObject(
+							JsonUtils.parseString(result), BaseBean.class);
+					if (getData(bean)) {
+						InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+						imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+						return;
+					}
+					showShortToast("发布成功");
+					finish();
+				} else {
+					InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+					imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
 					showNetShortToast(httpCode);
 				}
 			}
@@ -141,6 +223,7 @@ public class PublishActivity extends BaseSecondActivity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode,
 			Intent intent) {
+//		isRes = true;
 		if (resultCode == 0) {
 			return;
 		}
@@ -160,7 +243,7 @@ public class PublishActivity extends BaseSecondActivity {
 		public Drawable getDrawable(String source) {
 			int id = Integer.parseInt(source);
 			Drawable d = getResources().getDrawable(id);
-			d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+			d.setBounds(0, 0, DensityUtil.dip2px(PublishActivity.this, 65), DensityUtil.dip2px(PublishActivity.this, 30));
 			return d;
 		}
 	};

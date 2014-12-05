@@ -7,8 +7,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.http.client.HttpClient;
-
 import net.tsz.afinal.annotation.view.ViewInject;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +16,6 @@ import android.widget.EditText;
 
 import com.alibaba.fastjson.JSON;
 import com.zhongji.master.android.phone.R;
-import com.zhongji.master.android.phone.activity.contacts.ContactsActivity;
 import com.zhongji.master.android.phone.base.BaseSecondActivity;
 import com.zhongji.master.android.phone.entity.User;
 import com.zhongji.master.android.phone.entity.UserListBean;
@@ -52,9 +49,10 @@ public class LoginActivity extends BaseSecondActivity implements
 
 		setTitle("");
 		setLeftBtn_X();
-
-		et_username.setText("18718718718");
-		et_userpassword.setText("123");
+		
+		setResult(10);
+		et_username.setText("ftz");
+		et_userpassword.setText("111");
 	}
 
 	public void onClick(View arg0) {
@@ -125,13 +123,12 @@ public class LoginActivity extends BaseSecondActivity implements
 						HttpRestClient.hasCompany = user.getHasCompany();
 					}
 
-					Intent intent = new Intent(LoginActivity.this,
-							ContactsActivity.class);
-					startActivity(intent);
+					finish();
 				} else {
 					showNetShortToast(httpCode);
 				}
 			}
 		});
 	}
+	
 }

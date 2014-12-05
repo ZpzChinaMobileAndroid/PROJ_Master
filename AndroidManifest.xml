@@ -55,6 +55,7 @@
 
         <!-- 人脉-发布 -->
         <activity
+            android:windowSoftInputMode="stateAlwaysVisible"
             android:name="com.zhongji.master.android.phone.activity.contacts.PublishActivity"
             android:screenOrientation="portrait" >
         </activity>

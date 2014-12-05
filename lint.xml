@@ -15,4 +15,5 @@
     </issue>
     <issue id="UselessLeaf" severity="ignore" />
     <issue id="UselessParent" severity="ignore" />
+    <issue id="ViewTag" severity="ignore" />
 </lint>

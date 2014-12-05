@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content" >
 
                 <ImageView
-                    android:id="@+id/imageView1"
+                    android:id="@+id/iv_head"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -104,18 +104,18 @@
                     android:layout_weight="4.5" >
 
                     <TextView
-                        android:id="@+id/textView1"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tv_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingBottom="@dimen/padding_tb20"
                         android:text="TextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextView" />
 
                     <ImageView
-                        android:id="@+id/imageView2"
+                        android:id="@+id/iv_comment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/textView1"
-                        android:layout_alignRight="@+id/textView1"
+                        android:layout_alignBottom="@+id/tv_content"
+                        android:layout_alignRight="@+id/tv_content"
                         android:src="@drawable/contacts_comment" />
                 </RelativeLayout>
             </LinearLayout>
