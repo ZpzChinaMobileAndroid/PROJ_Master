@@ -6,7 +6,7 @@ import java.util.List;
 public class CompanyListBean extends BaseBean implements Serializable {
 
 	/**
-	 * 项目列表
+	 * 公司列表
 	 */
 	private static final long serialVersionUID = 1L;
 	private List<Company> data;
@@ -27,4 +27,6 @@ public class CompanyListBean extends BaseBean implements Serializable {
 		return "UserListBean [data=" + data + ", status=" + status + "]";
 	}
 
+
+	
 }

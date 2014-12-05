@@ -7,6 +7,7 @@ import org.json.JSONException;
 
 import net.tsz.afinal.annotation.view.ViewInject;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -53,7 +54,6 @@ public class CompanyParticularsActivity extends BaseSecondActivity implements
 	@ViewInject(id = R.id.tv_right)
 	private TextView tv_right;
 	private int number = 0;
-	private String userid, usertype;
 	private Company content;
 	private String companymessage;
 	private int a, b, c, d, e, f, g, h, i, j, k, l;
@@ -67,8 +67,6 @@ public class CompanyParticularsActivity extends BaseSecondActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_company_particulars);
 
-		userid = getIntent().getStringExtra("userid");
-		usertype = getIntent().getStringExtra("usertype");
 		content = (Company) getIntent().getSerializableExtra("content");
 		System.out.println("选择公司数据：" + content);
 
@@ -116,6 +114,13 @@ public class CompanyParticularsActivity extends BaseSecondActivity implements
 		setTitle("公司详情");
 		setLeftBtn();
 		deviceToken = HttpRestClient.DeviceTOKEN;
+
+		String haString = HttpRestClient.hasCompany;
+		if (haString.equals("true")) {
+			// 已认证
+			btn_authentication.setEnabled(false);
+			btn_authentication.setTextColor(Color.GRAY);
+		}
 	}
 
 	@Override
@@ -149,6 +154,7 @@ public class CompanyParticularsActivity extends BaseSecondActivity implements
 		} else if (v.getId() == R.id.btn_authentication) {
 			// 申请认证
 			authentication();
+
 		}
 	}
 
@@ -160,9 +166,9 @@ public class CompanyParticularsActivity extends BaseSecondActivity implements
 	private void attention() {
 		// TODO 自动生成的方法存根
 		RequestParams params = new RequestParams();
-		params.put("userId", userid);
-		params.put("focusId", id);
-		params.put("UserType", usertype);
+		params.put("userId", HttpRestClient.UserID);
+		params.put("focusId", companyidString);
+		params.put("UserType", HttpRestClient.UserType);
 		params.put("FocusType", "Company");
 
 		HttpRestClient.post(HttpAPI.COMPANY_ATTENTION, params,
@@ -189,8 +195,8 @@ public class CompanyParticularsActivity extends BaseSecondActivity implements
 	private void cancelattention() {
 		// TODO 自动生成的方法存根
 		RequestParams params = new RequestParams();
-		params.put("userId", userid);
-		params.put("focusId", id);
+		params.put("userId", HttpRestClient.UserID);
+		params.put("focusId", companyidString);
 
 		HttpRestClient.post(HttpAPI.COMPANY_CANCELATTENTION, params,
 				new ResponseUtils(CompanyParticularsActivity.this) {

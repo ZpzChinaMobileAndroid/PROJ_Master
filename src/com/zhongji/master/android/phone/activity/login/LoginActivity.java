@@ -53,8 +53,8 @@ public class LoginActivity extends BaseSecondActivity implements
 		setTitle("");
 		setLeftBtn_X();
 
-		et_username.setText("18718718718");
-		et_userpassword.setText("123");
+		et_username.setText("12345678901");
+		et_userpassword.setText("111");
 	}
 
 	public void onClick(View arg0) {

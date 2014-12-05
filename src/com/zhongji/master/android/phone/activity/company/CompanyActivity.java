@@ -60,7 +60,7 @@ public class CompanyActivity extends BaseIndexActivity implements
 	private boolean key_enter = false;
 	private boolean isSave = true;
 	private int keystate = KeyboardLayout.KEYBOARD_STATE_HIDE;
-	private String usertype, userid, devicetoken;
+	private String usertype, userid;
 	private InputMethodManager manager; // 隐藏软键盘
 
 	@Override
@@ -69,7 +69,6 @@ public class CompanyActivity extends BaseIndexActivity implements
 		super.onCreate(savedInstanceState);
 
 		usertype = HttpRestClient.UserType;
-		System.out.println("sss" + usertype);
 		userid = HttpRestClient.UserID;
 
 		setContentView(R.layout.activity_company_unautherized);
@@ -98,8 +97,7 @@ public class CompanyActivity extends BaseIndexActivity implements
 
 				Company com = adapter.getItem(arg2 - 2);
 				Intent intent = new Intent();
-				intent.setClass(CompanyActivity.this,
-						CompanyParticularsActivity.class);
+				intent.setClass(CompanyActivity.this,CompanyParticularsActivity.class);
 				intent.putExtra("userid", userid);
 				intent.putExtra("usertype", usertype);
 				intent.putExtra("content", com);
@@ -189,16 +187,18 @@ public class CompanyActivity extends BaseIndexActivity implements
 								}
 							}
 
-							if (tv_count == null) {
-								tv_count = new TextView(CompanyActivity.this);
-								tv_count.setGravity(Gravity.CENTER);
-								tv_count.setLayoutParams(new AbsListView.LayoutParams(
-										AbsListView.LayoutParams.MATCH_PARENT,
-										AbsListView.LayoutParams.WRAP_CONTENT));
-								tv_count.setTextColor(getResources().getColor(
-										R.color.gray_txt_hint));
-								listView.addHeaderView(tv_count);
-							}
+//							if (tv_count == null) {
+//								tv_count = new TextView(CompanyActivity.this);
+//								tv_count.setGravity(Gravity.CENTER);
+//								tv_count.setLayoutParams(new AbsListView.LayoutParams(
+//										AbsListView.LayoutParams.MATCH_PARENT,
+//										AbsListView.LayoutParams.WRAP_CONTENT));
+//								tv_count.setTextColor(getResources().getColor(
+//										R.color.gray_txt_hint));
+//								listView.addHeaderView(tv_count);
+//							}
+//							
+//							tv_count.setText("共计" + lists.size() + "条");
 
 							adapter.setList(lists);
 							adapter.notifyDataSetChanged();

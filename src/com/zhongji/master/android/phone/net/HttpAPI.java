@@ -31,7 +31,7 @@ public class HttpAPI {
 	public static final String COMPANY_MYSELF= "CompanyBaseInformation/GetMyCompany?PageIndex=0&PageSize=10";
 	
 	/** 获取公司员工*/
-	public static final String COMPANY_GETSTAFF= "CompanyBaseInformation/GetCompanyEmployees?PageSize=0&PageIndex=10";
+	public static final String COMPANY_GETSTAFF= "CompanyBaseInformation/GetCompanyEmployees";
 
 	/** 添加关注*/
 	public static final String COMPANY_ATTENTION= "networking/addUserFocus";
