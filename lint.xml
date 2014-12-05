@@ -5,8 +5,11 @@
     <issue id="DuplicateIds" severity="ignore" />
     <issue id="HardcodedText" severity="ignore" />
     <issue id="NestedWeights" severity="ignore" />
+    <issue id="NewApi" severity="ignore" />
     <issue id="Orientation" severity="ignore" />
+    <issue id="SdCardPath" severity="ignore" />
     <issue id="TextFields" severity="ignore" />
+    <issue id="UnusedAttribute" severity="ignore" />
     <issue id="UseCompoundDrawables">
         <ignore path="res/layout/laouyt_baseinfo.xml" />
     </issue>

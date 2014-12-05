@@ -3,16 +3,13 @@ package com.zhongji.master.android.phone.activity.login;
 /**
  * 登陆
  */
-import java.net.URLDecoder;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import net.tsz.afinal.annotation.view.ViewInject;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -37,7 +34,6 @@ public class LoginActivity extends BaseSecondActivity implements
 	@ViewInject(id = R.id.et_userpassword)
 	private EditText et_userpassword;
 	private User user;
-	private String userid, usertype, userdevietoken;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +41,6 @@ public class LoginActivity extends BaseSecondActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 
-		// 获取屏幕分辨率
-		DisplayMetrics dm = new DisplayMetrics();
-		getWindowManager().getDefaultDisplay().getMetrics(dm);
-		int width = dm.widthPixels;// 宽度
-		int h = dm.heightPixels;
 		init();// 初始化(继承父类的时候)
 
 	}
@@ -94,15 +85,9 @@ public class LoginActivity extends BaseSecondActivity implements
 			Intent intent = new Intent(LoginActivity.this,
 					FoundPasswordActivity.class);
 			startActivity(intent);
-		} else if (arg0.getId() == R.id.tv_forget) {
-			// 找回密码
-			Intent intent = new Intent(LoginActivity.this,
-					FoundPasswordActivity.class);
-			startActivity(intent);
-
-		}
+		} 
 	}
-
+	
 	/**
 	 * 登陆
 	 * 
@@ -139,8 +124,6 @@ public class LoginActivity extends BaseSecondActivity implements
 
 					Intent intent = new Intent(LoginActivity.this,
 							ContactsActivity.class);
-					intent.putExtra("userid", userid);
-					intent.putExtra("usertype", usertype);
 					startActivity(intent);
 				} else {
 					showNetShortToast(httpCode);

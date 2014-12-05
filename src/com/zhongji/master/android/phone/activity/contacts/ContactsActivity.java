@@ -7,8 +7,10 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.zhongji.master.android.phone.R;
+import com.zhongji.master.android.phone.activity.login.LoginActivity;
 import com.zhongji.master.android.phone.adapter.ContactsAdapter;
 import com.zhongji.master.android.phone.base.BaseIndexActivity;
+import com.zhongji.master.android.phone.net.HttpRestClient;
 
 /**
  * 人脉首页
@@ -35,8 +37,16 @@ public class ContactsActivity extends BaseIndexActivity{
 		if(arg0.getId() == R.id.tv_right){
 			//发布
 			Intent intent = new Intent();
-			intent.setClass(ContactsActivity.this, PublishActivity.class);
-			startActivity(intent);
+			if("".equals(HttpRestClient.DeviceTOKEN)){
+				intent.setClass(ContactsActivity.this, LoginActivity.class);
+				startActivity(intent);
+				overridePendingTransition(R.anim.login_in, R.anim.login_out);
+			}else{
+				intent.setClass(ContactsActivity.this, PublishActivity.class);
+				startActivity(intent);
+			}
+			
+			
 		}
 	}
 
@@ -55,4 +65,10 @@ public class ContactsActivity extends BaseIndexActivity{
 		
 	}
 
+	protected void onResume() {
+	    //放到onResume就可以实现android 返回键动画
+		overridePendingTransition(R.anim.logout_in, R.anim.logout_out);
+	    super.onResume();
+	}
+	
 }

@@ -3,17 +3,16 @@ package com.zhongji.master.android.phone.adapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.zhongji.master.android.phone.R;
-import com.zhongji.master.android.phone.R.id;
-import com.zhongji.master.android.phone.entity.Company;
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView.FindListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.zhongji.master.android.phone.R;
+import com.zhongji.master.android.phone.R.id;
+import com.zhongji.master.android.phone.entity.Company;
 
 /**
  *公司适配器 
