@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import com.alibaba.fastjson.JSON;
@@ -46,6 +48,12 @@ public class CompanyStaffActivity extends BaseSecondActivity implements
 	private RTPullListView listView;
 	private List<Staffer> lists;
 	private TextView tv_count = null;
+	@ViewInject(id = R.id.btn_company_seach)
+	private Button btn_company_seach;
+	@ViewInject(id = R.id.et_company_seach_name)
+	private EditText et_company_seach_name;
+	@ViewInject(id = R.id.tv_company_cancel)
+	private TextView tv_company_cancel;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +84,17 @@ public class CompanyStaffActivity extends BaseSecondActivity implements
 	public void onClick(View v) {
 		// TODO 自动生成的方法存根
 		super.onClick(v);
+		if (v.getId() == R.id.btn_company_seach) {
+			// 搜索
+			btn_company_seach.setVisibility(View.GONE);
+			et_company_seach_name.setVisibility(View.VISIBLE);
+			// SeachCompany();
+		} else if (v.getId() == R.id.tv_company_cancel) {
+			// 取消
+			finish();
+		}
+		
+		
 	}
 
 	/**
